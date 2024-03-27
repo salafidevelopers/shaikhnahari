@@ -1,55 +1,73 @@
 import Image from "next/image";
+import Navbar from "@/components/Navbar";
+import { FaRegCalendar } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
+import { FaFacebookSquare } from "react-icons/fa";
+import { AiOutlineMail } from "react-icons/ai";
+import { BsTwitterX } from "react-icons/bs";
 
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 font-alexandria bg-[url('/assets/hero_bg.jpg')] bg-cover`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex bg-[/assets/hero_bg.jpg]">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
+    <div className="h-sreen ">
+      <Navbar />
+      <main
+        className={`flex min-h-screen flex-col items-center justify-between p-24 font-alexandria bg-[url('/assets/hero_bg.jpg')] bg-cover`}
+      >
+        <div className="flex flex-col items-center justify-between lg:pb-8 lg:pt-16 h-screen">
+          <div className="text-primary-700 space-y-3">
+            <div className="flex justify-center space-x-2 items-center py-3">
+              <span className="text-xs">اليوم : الأربعاء 28 فبراير 2024 ميلادى - 18 شعبان 1445 هجرى </span>
+              <FaRegCalendar />
+            </div>
+            <div className="flex justify-center items-center space-x-3">
+              <span className="text-center text-xs"> جديد أخبار الشيخ :جديد أخبار الشيخجديد أخبار الشيخجديد أخبار الشيخجديد أخبار الشيخجديد أخبار الشيخجديد
+                      <br/> أخبار الشيخجديد أخبار الشيخجديد أخبار الشيخ
+              </span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+              </svg>
+
+            </div>
+          </div>
+          <div className="">
             <Image
+              // className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+              className=""
               src="/assets/logo.png"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
+              alt="Next.js Logo"
+              width={400}
+              height={100}
               priority
             />
-          </a>
+          </div>
+
+          <div className="w-full rounded-full bg-white flex justify-between px-3 py-1 ">
+            <input type="text" className="text-xs outline-none w-full text-primary-700" placeholder="Enter text here" />
+            <span className="bg-primary-700 rounded-full px-3 py-1 ring-1 ring-primary-400"><button className="text-xs px-3 cursor-pointer tracking-wide">search</button></span>
+          </div>
+
+          <div className="bg-primary-10 rounded-md mb-3 justify-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 bg-gradient-to-b from-gray-30 via-primary-40 to-primary-40">
+            <h2 className={` text-center text-xs text-primary-800 leading-5 py-7 px-3`}>
+              هذه ترجمةٌ مختصرةٌ عَنْ شَيْخِنَا الشيخ عَبْدُ الله بْنُ عَبْد
+              الرَّحِيْمِ بْنِ حُسْيَن بْنِ مَحْمُودٍ السَّعديُّ ثُمَّ البُخاريُّ
+              <br /> المدينيُّ 
+              نسبةً إلى بني سعدٍ من الطَّائف لَمَّا رأيتُ سُؤال عَددٍ من
+              الإخوةِ راغبين فِي معرفة ترجمةٍ عن الشيخِ وهي عبارة عن 
+              <br/> أسئلةٍ وجَّهتها 
+              إليه بعد استئذانه و قبوله حفظه الله.
+            </h2>
+            <div className="flex justify-center mb-3">
+              <button className="space-x-2 cursor-pointer flex items-center bg-primary-700 px-2 py-1 rounded-md"><span>المزيد</span> <FaArrowRight /></button>
+            </div>
+          </div>
+
+          <div className="flex justify-center space-x-3 text-primary-700">
+            <span><FaFacebookSquare /></span>
+            <span><AiOutlineMail /></span>
+            <span><BsTwitterX /></span>
+          </div>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/assets/logo.png"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32  text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 ">
-        <h2 className={`mb-3 text-sm text-primary-800 `}>
-          هذه ترجمةٌ مختصرةٌ عَنْ شَيْخِنَا الشيخ عَبْدُ الله بْنُ عَبْد
-          الرَّحِيْمِ بْنِ حُسْيَن بْنِ مَحْمُودٍ السَّعديُّ ثُمَّ البُخاريُّ
-          المدينيُّ نسبةً إلى بني سعدٍ من الطَّائف لَمَّا رأيتُ سُؤال عَددٍ من
-          الإخوةِ راغبين فِي معرفة ترجمةٍ عن الشيخِ وهي عبارة عن أسئلةٍ وجَّهتها
-          إليه بعد استئذانه و قبوله حفظه الله.
-        </h2>
-      </div>
-    </main>
+      </main>
+    </div>
   );
 }
