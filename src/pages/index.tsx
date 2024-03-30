@@ -11,15 +11,15 @@ export default function Home() {
     <div className="h-sreen ">
       <Navbar />
       <main
-        className={`flex min-h-screen flex-col items-center justify-between p-24 font-alexandria bg-[url('/assets/hero_bg.jpg')] bg-cover`}
+        className={`flex min-h-screen flex-col items-center justify-between p-24 font-alexandria bg-[url('/assets/hero_bg.jpg')] bg-center bg-cover bg-no-repeat`}
       >
-        <div className="flex flex-col items-center justify-between lg:pb-8 lg:pt-16 h-screen">
-          <div className="text-primary-700 space-y-3">
-            <div className="flex justify-center space-x-2 items-center py-3">
+        <div className="flex flex-col items-center justify-between pb-4 lg:pb-8 lg:pt-16 h-screen">
+          <div className="text-primary-700 space-y-1 lg:space-y-3">
+            <div className="flex justify-center lg:space-x-2 items-center py-3">
               <span className="text-xs">اليوم : الأربعاء 28 فبراير 2024 ميلادى - 18 شعبان 1445 هجرى </span>
               <FaRegCalendar />
             </div>
-            <div className="flex justify-center items-center space-x-3">
+            <div className="flex justify-center items-center lg:space-x-3">
               <span className="text-center text-xs"> جديد أخبار الشيخ :جديد أخبار الشيخجديد أخبار الشيخجديد أخبار الشيخجديد أخبار الشيخجديد أخبار الشيخجديد
                       <br/> أخبار الشيخجديد أخبار الشيخجديد أخبار الشيخ
               </span>
@@ -32,7 +32,7 @@ export default function Home() {
           <div className="">
             <Image
               // className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-              className=""
+              className="py-5 lg:py-0"
               src="/assets/logo.png"
               alt="Next.js Logo"
               width={400}
@@ -46,8 +46,8 @@ export default function Home() {
             <span className="bg-primary-700 rounded-full px-3 py-1 ring-1 ring-primary-400"><button className="text-xs px-3 cursor-pointer tracking-wide">search</button></span>
           </div>
 
-          <div className="bg-primary-10 rounded-md mb-3 justify-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 bg-gradient-to-b from-gray-30 via-primary-40 to-primary-40">
-            <h2 className={` text-center text-xs text-primary-800 leading-5 py-7 px-3`}>
+          <div className="bg-primary-10 rounded-md mb-3 my-5 lg:my-0 justify-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 bg-gradient-to-b from-gray-30 via-primary-40 to-primary-40">
+            <h2 className={` text-center text-xs text-primary-800 lg:leading-5 leading-4 py-4 lg:py-7 px-2 lg:px-3`}>
               هذه ترجمةٌ مختصرةٌ عَنْ شَيْخِنَا الشيخ عَبْدُ الله بْنُ عَبْد
               الرَّحِيْمِ بْنِ حُسْيَن بْنِ مَحْمُودٍ السَّعديُّ ثُمَّ البُخاريُّ
               <br /> المدينيُّ 
@@ -61,7 +61,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex justify-center space-x-3 text-primary-700">
+          <div className="flex py-4 lg:py-0 justify-center space-x-3 text-primary-700">
             <span><FaFacebookSquare /></span>
             <span><AiOutlineMail /></span>
             <span><BsTwitterX /></span>
