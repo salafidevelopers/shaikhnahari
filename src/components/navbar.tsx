@@ -14,7 +14,7 @@ export default function Navbar() {
     { label: "Lecture and meetings", link: "/lecture_and_meetings" },
     { label: "Clips and questions", link: "/clips_and_questions" },
     { label: "Translated lessons", link: "/translated_lessons" },
-    { label: "Audio recitations", link: "/audio_recitations" },
+    { label: "Audio recitations", link: "/AudioRecitations" },
   ];
   const recordingOptions = [
     { label: "ترجمة الشيخ", link: "/#" },
