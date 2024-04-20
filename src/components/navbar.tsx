@@ -6,11 +6,7 @@ import { GoHomeFill } from "react-icons/go";
 import Link from "next/link";
 import Dropdown from "./AudioDropDown";
 import RecordingsDropdown from "./RecordingDropdown";
-import { Alexandria } from "next/font/google";
-
-const alexandria = Alexandria({
-  subsets: ["latin"],
-});
+import { alexandria } from "@/utils";
 
 export default function Navbar() {
   const router = useRouter();
@@ -29,7 +25,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`flex font-alexandria justify-center items-center bg-white py-3 ${alexandria.className}`}
+      className={`flex font-alexandria justify-center items-center bg-white py-3 ${alexandria.variable}`}
     >
       <div className="flex items-center space-x-3 lg:space-x-7 ring-1 ring-primary-400 p-3 rounded-md">
         <Link className={router.pathname == "" ? "active" : ""} href="#">

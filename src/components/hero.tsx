@@ -10,7 +10,7 @@ const Hero = () => {
     <div
       className={`flex flex-col h-full items-center justify-between p-24  bg-[url('/assets/hero_bg.jpg')] bg-center bg-cover bg-no-repeat`}
     >
-      <div className="flex flex-col items-center justify-between lg:pb-8 lg:pt-16 h-screen">
+      <div className="flex flex-col items-center justify-between lg:pb-8 lg:pt-16 gap-4">
         <div className="text-primary-700 space-y-3">
           <div className="flex justify-center space-x-2 items-center py-3">
             <span className="text-xs">
@@ -51,7 +51,7 @@ const Hero = () => {
           />
         </div>
 
-        <div className="w-full rounded-full bg-white flex justify-between px-3 py-1 ">
+        <div className="w-full rounded-full bg-white flex justify-between px-3 py-1 mb-3">
           <input
             type="text"
             className="text-xs outline-none w-full text-primary-700"
