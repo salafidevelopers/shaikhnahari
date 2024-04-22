@@ -41,23 +41,11 @@
     "search placeholder": "Search the platform",
     "confrences": "conferences"
   },
-
   "footer": {
-    "about links": {
-      "heading": "About us",
-      "connect": "Connect with us",
-      "about us": "About us",
-      "Join us": "Join us",
-      "appointment": "Book a personal appointment"
-    },
-
-    "download app": "Download our app",
-    "copyright": "All rights reserved to Al-Taseel University",
-    "newsletter": {
-      "title": "Join our newsletter to get the latest course updates",
-      "join": "send"
-    },
-    "socials": "Social media"
+    "mail": "Mailing List",
+    "placeholder": "Enter your Email",
+    "subscribe": "subscribe",
+    "copyright": "All rights reserved to the site - 1445 AH"
   },
   "login": {
     "sign in": "Sign In",

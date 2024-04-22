@@ -1,24 +1,17 @@
+import { Footer } from "@/components/footer";
 import Navbar from "@/components/navbar";
-import useDynamicHeight from "@/hooks/useDynamicHeight";
 import "@/styles/globals.css";
-import { alexandria } from "@/utils";
 import type { AppProps } from "next/app";
-
+import { Alexandria } from "next/font/google";
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
+
+const alexandria = Alexandria({
+  subsets: ["latin"],
+  variable: "--font-alexandria",
+});
 
 export default function App({ Component, pageProps }: AppProps) {
-  const { minHeight, heroRef } = useDynamicHeight();
-  const { locale } = useRouter();
-  const dir = locale === "ar" ? "rtl" : "ltr";
-  const lang = locale == "ar" ? "ar" : "en";
-
-  useEffect(() => {
-    document.documentElement.dir = dir;
-    document.documentElement.lang = lang;
-  }, [dir, lang]);
-
   return (
     <Fragment>
       <Head>
@@ -27,12 +20,10 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Sheikh Yahyah An-Nahari</title>
       </Head>
       <Navbar />
-      <main
-        className={`${alexandria.className} ${alexandria.variable} }`}
-        style={{ minHeight: `${minHeight}px` }}
-      >
+      <main className={`${alexandria.variable} font-alexandria`}>
         <Component {...pageProps} />
       </main>
+      <Footer />
     </Fragment>
   );
 }
