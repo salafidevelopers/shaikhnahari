@@ -1,0 +1,8 @@
+{
+  "locales": ["ar", "en-US"],
+  "defaultLocale": "ar",
+  "localeDetection": false,
+  "pages": {
+    "*": ["index"]
+  }
+}
