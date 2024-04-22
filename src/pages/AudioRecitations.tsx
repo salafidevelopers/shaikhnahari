@@ -1,6 +1,4 @@
 import React from "react";
-import Image from "next/image";
-import { FaRegCalendar } from "react-icons/fa";
 import AudioRecitationCard from "../components/AudioRecitationCard";
 import { FaFacebookSquare } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
@@ -51,26 +49,6 @@ const AudioRecitations: React.FC<Props> = ({ cardUi = dummyData }) => {
             ))}
           </div>
         </section>
-      </div>
-
-      <div className="px-10 bg-white">
-        <Footer />
-        <div className="">
-          <div className="flex items-center text-lg space-x-3 text-primary-800 pb-1">
-            <span>
-              <FaFacebookSquare />
-            </span>
-            <span>
-              <AiOutlineMail />
-            </span>
-            <span>
-              <BsTwitterX />
-            </span>
-          </div>
-          <span className="text-primary-800 text-sm">
-            All rights reserved to the site - 1436 AH
-          </span>
-        </div>
       </div>
     </div>
   );
