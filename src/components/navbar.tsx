@@ -25,36 +25,37 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`flex font-alexandria justify-center items-center bg-white py-3 ${alexandria.variable}`}
+      className={`flex  justify-center items-center bg-white py-3 ${alexandria.className}`}
     >
-      <div className="flex items-center space-x-3 lg:space-x-7 ring-1 ring-primary-400 p-3 rounded-md">
-        <Link className={router.pathname == "" ? "active" : ""} href="#">
-          <div className="flex text-black items-center space-x-1 lg:space-x-2  hover:bg-gray-100 hover:p-2 hover:rounded-md hover:transition-all ease-in-out duration-300">
-            <span className="text-black text-xs lg:text-sm">اتصل بنا</span>
-            <IoCall />
-          </div>
-        </Link>
-        <div>
-          <RecordingsDropdown options={recordingOptions} />
-        </div>
-        <Link
-          className={router.pathname == "/articles" ? "active" : ""}
-          href="./articles"
-        >
-          <div className="flex items-center space-x-1 lg:space-x-2 text-black  hover:bg-gray-100 hover:p-2 hover:rounded-md hover:transition-all ease-in-out duration-300">
-            <span className="text-xs lg:text-sm font-mono">مقالات-الشيخ</span>
-            <SlBookOpen />
+      <div className="flex items-center gap-4 space-x-3 lg:space-x-7 ring-1 ring-primary-400 p-3 rounded-md">
+        <Link className={router.pathname == "/" ? "active" : ""} href="./">
+          <div
+            className={`flex items-center space-x-1 lg:space-x-2 text-black gap-2`}
+          >
+            <GoHomeFill />
+            <span className="text-xs lg:text-sm"> الرئيسية</span>
           </div>
         </Link>
         <div>
           <Dropdown options={options} />
         </div>
-        <Link className={router.pathname == "/" ? "active" : ""} href="./">
-          <div
-            className={`flex items-center space-x-1 lg:space-x-2 text-black`}
-          >
-            <span className="text-xs lg:text-sm"> الرئيسية</span>
-            <GoHomeFill />
+
+        <Link
+          className={router.pathname == "/articles" ? "active" : ""}
+          href="./articles"
+        >
+          <div className="flex items-center gap-2 space-x-1 lg:space-x-2 text-black  hover:bg-gray-100 hover:p-2 hover:rounded-md hover:transition-all ease-in-out duration-300">
+            <SlBookOpen />
+            <span className="text-xs lg:text-sm font-mono">مقالات-الشيخ</span>
+          </div>
+        </Link>
+        <div>
+          <RecordingsDropdown options={recordingOptions} />
+        </div>
+        <Link className={router.pathname == "" ? "active" : ""} href="#">
+          <div className="flex text-black items-center space-x-1 lg:space-x-2  gap-2 hover:bg-gray-100 hover:p-2 hover:rounded-md hover:transition-all ease-in-out duration-300">
+            <IoCall />
+            <span className="text-black text-xs lg:text-sm">اتصل بنا</span>
           </div>
         </Link>
       </div>

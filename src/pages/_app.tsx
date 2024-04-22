@@ -5,11 +5,19 @@ import { alexandria } from "@/utils";
 import type { AppProps } from "next/app";
 
 import Head from "next/head";
-import { Fragment } from "react";
+import { useRouter } from "next/router";
+import { Fragment, useEffect } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
   const { minHeight, heroRef } = useDynamicHeight();
-  console.log({ minHeight });
+  const { locale } = useRouter();
+  const dir = locale === "ar" ? "rtl" : "ltr";
+  const lang = locale == "ar" ? "ar" : "en";
+
+  useEffect(() => {
+    document.documentElement.dir = dir;
+    document.documentElement.lang = lang;
+  }, [dir, lang]);
 
   return (
     <Fragment>

@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import Link from 'next/link';
+import { useState } from "react";
+import Link from "next/link";
 import { HiSpeakerWave } from "react-icons/hi2";
 
 interface Option {
@@ -29,11 +29,10 @@ const Dropdown: React.FC<DropdownProps> = ({ options }) => {
       onMouseLeave={handleMouseLeave}
     >
       <button className="dropdown-toggle">
-        <span className='flex items-center space-x-1 lg:space-x-2 text-black hover:bg-gray-100 hover:p-2 hover:rounded-md hover:transition-all ease-in-out duration-300'>
-            <span className='text-xs lg:text-sm'> صوتيات الموقع</span>
-              <HiSpeakerWave />
-            </span>
-        
+        <span className="flex items-center gap-2 space-x-1 lg:space-x-2 text-black hover:bg-gray-100 hover:p-2 hover:rounded-md hover:transition-all ease-in-out duration-300">
+          <HiSpeakerWave />
+          <span className="text-xs lg:text-sm"> صوتيات الموقع</span>
+        </span>
       </button>
       {isOpen && (
         <div className="dropdown-menu">

@@ -1,0 +1,109 @@
+{
+  "home": {
+    "hero": {
+      "date": "11.09.2022",
+      "conference": "conference",
+      "title": "Introduction to Islamic teachings and lifestyle",
+      "summary": "The purpose of the introductory course is to build your foundation for Islamic monotheism and the correct belief of the Companions of the Prophet."
+    },
+    "help": {
+      "need help": "Do you have questions?",
+      "summary": "You may find the answer to the FAQ on the Help Center page",
+      "action": "Help Center"
+    },
+    "whyus": {
+      "title": "Why Choose Us"
+    },
+    "testimonials": {
+      "title": "Testimonials"
+    },
+    "interestcard": {
+      "header": "where do you find your concern, directives and wishes",
+      "begin": "Begin",
+      "contents": "The purpose of the introductory course is to build your foundation for Islamic monotheism and the correct belief of the Companions of the Prophet. \nThe purpose of the introductory course is to build your foundation for Islamic monotheism and the correct belief of the Companions of the Prophet. \nThe purpose of the introductory course is to build your foundation for Islamic monotheism and the correct belief of the Companions of the Prophet. \nThe purpose of the introductory course is to build your foundation for Islamic monotheism and the correct belief of the Companions of the Prophet."
+    }
+  },
+  "about": {
+    "description": "About the description",
+    "title": "About the address"
+  },
+  "header": {
+    "Home": "Home",
+    "about": "Around"
+  },
+  "navbar": {
+    "Join us": "Join us",
+    "corporate training": "Corporate Training",
+    "blog": "Blog",
+    "menu": "Menu",
+    "sign in": "Sign In",
+    "sign up": "Join Ataasil",
+    "search placeholder": "Search the platform",
+    "confrences": "conferences"
+  },
+  "coursecards": {
+    "title": "The book of Tawheed of Shaikh Al-Uthaymeen",
+    "date": "4 months",
+    "topic": "Tawhid",
+    "summary": "But I must show you that all these misconceptions about the condemnation of ecstasy and the glorification of pain have already arisen, and I will show you",
+    "amount": "$120",
+    "owner": "Fawwaz Al-Madkhali",
+    "main topic": "Topic Category",
+    "section title": "The Islamic Tawhid"
+  },
+  "footer": {
+    "about links": {
+      "heading": "About us",
+      "connect": "Connect with us",
+      "about us": "About us",
+      "Join us": "Join us",
+      "appointment": "Book a personal appointment"
+    },
+    "support": {
+      "heading": "Support",
+      "help center": "Help Center",
+      "privacy": "privacy policy",
+      "circumstance": "Circumstances",
+      "user guide": "User's Manual"
+    },
+    "download app": "Download our app",
+    "copyright": "All rights reserved to Al-Taseel University",
+    "newsletter": {
+      "title": "Join our newsletter to get the latest course updates",
+      "join": "send"
+    },
+    "socials": "Social media"
+  },
+  "login": {
+    "sign in": "Sign In",
+    "identity": "Email / National ID",
+    "password": "Password",
+    "forgot password": "Forgot password?",
+    "or": "or",
+    "create": "Create new account",
+    "latest": "Latest training programs"
+  },
+  "sign up page": {
+    "title": "Sign Up",
+    "full name": "Full Name",
+    "nationality": "choose your nationality",
+    "job": "job selection",
+    "number": "national identification number",
+    "date": "date of birth - hijrah",
+    "day": "day",
+    "month": "  month",
+    "year": "year",
+    "phone number": "phone number",
+    "code": "code",
+    "email": "email address",
+    "email confirmation": "confirm email address",
+    "password": "password",
+    "password confirmation": "confirm password",
+    "email notification": "disable email notification",
+    "text notification": "disable text message notification",
+    "agreement": " I agree to the conditions of service and I also agree to the policy",
+    "create account": "create an account",
+    "program": "Latest Training Program",
+    "account": "do you have an account, login "
+  }
+}
