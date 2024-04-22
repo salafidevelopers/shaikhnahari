@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Navbar from "@/components/navbar";
 import useDynamicHeight from "@/hooks/useDynamicHeight";
 import "@/styles/globals.css";
@@ -33,6 +34,8 @@ export default function App({ Component, pageProps }: AppProps) {
       >
         <Component {...pageProps} />
       </main>
+
+      <Footer />
     </Fragment>
   );
 }
