@@ -16,12 +16,14 @@ export default function Navbar() {
   const { t, lang } = useTranslation("index");
 
   const options = [
+
     { label: "شروحات علمية", link: "/scientific_explanation" },
     { label: "محاضرات ولقاءات", link: "/lecture_and_meetings" },
     { label: "خطب", link: "/books_khotab" },
     { label: "مقاطع وأسئلة", link: "/clips_and_questions" },
     { label: "دروس مترجمة", link: "/lessons" },
     { label: "تلاوات صوتية", link: "/audio_recitations" },
+    { label: "Audio recitations", link: "/AudioRecitations" },
   ];
   const recordingOptions = [
     { label: "ترجمة الشيخ", link: "/#" },
