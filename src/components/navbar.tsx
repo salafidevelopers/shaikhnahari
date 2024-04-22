@@ -4,6 +4,8 @@ import { IoCall } from "react-icons/io5";
 import { SlBookOpen } from "react-icons/sl";
 import { GoHomeFill } from "react-icons/go";
 import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
+
 import Dropdown from "./AudioDropDown";
 import RecordingsDropdown from "./RecordingDropdown";
 import { alexandria } from "@/utils";
@@ -11,6 +13,8 @@ import LocaleSwitcher from "./localeSwitcher";
 
 export default function Navbar() {
   const router = useRouter();
+  const { t, lang } = useTranslation("index");
+
   const options = [
     { label: "شروحات علمية", link: "/scientific_explanation" },
     { label: "محاضرات ولقاءات", link: "/lecture_and_meetings" },
@@ -33,7 +37,7 @@ export default function Navbar() {
         <Link className={router.pathname == "/" ? "active" : ""} href="/">
           <div className={`flex items-center  text-black gap-2`}>
             <GoHomeFill />
-            <span className="sm:text-xs text-sm">الرئيسية</span>
+            <span className="sm:text-xs text-sm">{t("navbar.home")}</span>
           </div>
         </Link>
         <div>
