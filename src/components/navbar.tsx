@@ -11,11 +11,12 @@ import { alexandria } from "@/utils";
 export default function Navbar() {
   const router = useRouter();
   const options = [
-    { label: "Scientific explanation", link: "/scientific_explanation" },
-    { label: "Lecture and meetings", link: "/lecture_and_meetings" },
-    { label: "Clips and questions", link: "/clips_and_questions" },
-    { label: "Translated lessons", link: "/translated_lessons" },
-    { label: "Audio recitations", link: "/audio_recitations" },
+    { label: "شروحات علمية", link: "/scientific_explanation" },
+    { label: "محاضرات ولقاءات", link: "/lecture_and_meetings" },
+    { label: "خطب", link: "/books_khotab" },
+    { label: "مقاطع وأسئلة", link: "/clips_and_questions" },
+    { label: "دروس مترجمة", link: "/lessons" },
+    { label: "تلاوات صوتية", link: "/audio_recitations" },
   ];
   const recordingOptions = [
     { label: "ترجمة الشيخ", link: "/#" },
