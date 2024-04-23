@@ -2,6 +2,7 @@ import React from "react";
 import { SlCloudDownload } from "react-icons/sl";
 import { FaFacebookSquare } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
+import AudioPlayer from './AudioPlayer'
 
 export default function AudioRecitationCard() {
   return (
@@ -23,7 +24,7 @@ export default function AudioRecitationCard() {
           </div>
           {/* audio player */}
           <div>
-            <audio></audio>
+            <AudioPlayer />
           </div>
           <div className="bg-primary-800 rounded-md flex justify-between p-2 md:p-1">
             <div></div>
