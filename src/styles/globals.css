@@ -16,12 +16,6 @@
   }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
 .active {
   background-color: #f9e7d2;
   border-radius: 5px;

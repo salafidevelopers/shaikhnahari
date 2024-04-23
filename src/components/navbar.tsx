@@ -56,10 +56,10 @@ export default function Navbar() {
         <div>
           <RecordingsDropdown options={recordingOptions} />
         </div>
-        <Link className={router.pathname == "" ? "active" : ""} href="#">
+        <Link className={router.pathname == "" ? "active" : ""} href="/contact">
           <div className="flex text-black items-center gap-2 hover:bg-gray-100 hover:p-2 hover:rounded-md hover:transition-all ease-in-out duration-300">
             <IoCall />
-            <span className="text-black sm:text-xs text-sm">اتصل بنا</span>
+            <p className="text-black sm:text-xs text-sm">اتصل بنا</p>
           </div>
         </Link>
         <LocaleSwitcher />
