@@ -34,6 +34,7 @@ const AudioRecitations: React.FC<Props> = ({ cardUi = dummyData }) => {
     name: path,
     path: pathNames.slice(0, i + 1).join("/"),
   }));
+
   return (
     <div>
       <SecondaryHero />
