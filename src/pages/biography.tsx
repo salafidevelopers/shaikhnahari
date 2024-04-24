@@ -9,7 +9,7 @@ import path from "path";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 
-const Biography = ({ content }) => {
+const Biography = ({ content }: { content: string }) => {
   const paths = usePathname();
 
   const pathNames = paths.split("/").filter((path) => path);

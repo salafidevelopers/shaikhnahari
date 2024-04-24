@@ -21,8 +21,7 @@ export default function Navbar() {
     { label: "خطب", link: "/books_khotab" },
     { label: "مقاطع وأسئلة", link: "/clips_and_questions" },
     { label: "دروس مترجمة", link: "/lessons" },
-    { label: "تلاوات صوتية", link: "/audio_recitations" },
-    { label: "Audio recitations", link: "/AudioRecitations" },
+    { label: "تلاوات صوتية", link: "/AudioRecitations" },
   ];
   const recordingOptions = [
     { label: "ترجمة الشيخ", link: "/biography" },
