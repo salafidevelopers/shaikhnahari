@@ -33,6 +33,10 @@
   },
   "navbar": {
     "home": "الرئيسية",
+    "articles": "مقالات-الشيخ",
+    "audio-recitations": "صوتيات الموقع",
+    "recordings": "حول الشيخ",
+    "contact": "اتصل بنا",
     "corporate training": "التدريب المؤسسي",
     "blog": "المدونة",
     "menu": "منتجاتنا",

@@ -33,6 +33,10 @@
   },
   "navbar": {
     "home": "Home",
+    "articles": "Articles",
+    "audio-recitations": "Audio recitations",
+    "recordings": "Recordings",
+    "contact": "Contact us",
     "corporate training": "Corporate Training",
     "blog": "Blog",
     "menu": "Menu",

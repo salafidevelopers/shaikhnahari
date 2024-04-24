@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { IoIosArrowDown } from "react-icons/io";
+import useTranslation from "next-translate/useTranslation";
+import { useRouter } from "next/router";
 
 interface recordingOptions {
   label: string;
@@ -22,6 +24,9 @@ const RecordingsDropdown: React.FC<RecordingsDropdownProps> = ({ options }) => {
     setIsOpen(false);
   };
 
+  const router = useRouter();
+  const { t, lang } = useTranslation("index");
+
   return (
     <div
       className="dropdown"
@@ -30,7 +35,7 @@ const RecordingsDropdown: React.FC<RecordingsDropdownProps> = ({ options }) => {
     >
       <button className="dropdown-toggle">
         <span className="flex items-center gap-2 text-black hover:bg-gray-100 hover:p-2 hover:rounded-md hover:transition-all ease-in-out duration-300">
-          <span className="md:text-xs text-sm"> حول الشيخ</span>
+          <span className="md:text-xs text-sm"> {t("navbar.recordings")}</span>
           <IoIosArrowDown />
         </span>
       </button>

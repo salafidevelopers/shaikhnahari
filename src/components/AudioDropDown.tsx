@@ -1,6 +1,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { HiSpeakerWave } from "react-icons/hi2";
+import useTranslation from "next-translate/useTranslation";
+import { useRouter } from "next/router";
+
 
 interface Option {
   label: string;
@@ -22,6 +25,9 @@ const Dropdown: React.FC<DropdownProps> = ({ options }) => {
     setIsOpen(false);
   };
 
+  const router = useRouter();
+  const { t, lang } = useTranslation("index");
+
   return (
     <div
       className="dropdown"
@@ -31,7 +37,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options }) => {
       <button className="dropdown-toggle">
         <span className="flex items-center gap-2 space-x-1 lg:space-x-2 text-black hover:bg-gray-100 hover:p-2 hover:rounded-md hover:transition-all ease-in-out duration-300">
           <HiSpeakerWave />
-          <span className="md:text-xs text-sm">صوتيات الموقع</span>
+          <span className="md:text-xs text-sm">{t("navbar.audio-recitations")}</span>
         </span>
       </button>
       {isOpen && (

@@ -50,7 +50,7 @@ export default function Navbar() {
         >
           <div className="flex items-center gap-2 text-black  hover:bg-gray-100 hover:p-2 hover:rounded-md hover:transition-all ease-in-out duration-300">
             <SlBookOpen />
-            <span className="sm:text-xs text-sm">مقالات-الشيخ</span>
+            <span className="sm:text-xs text-sm">{t("navbar.articles")}</span>
           </div>
         </Link>
         <div>
@@ -59,7 +59,7 @@ export default function Navbar() {
         <Link className={router.pathname == "" ? "active" : ""} href="#">
           <div className="flex text-black items-center gap-2 hover:bg-gray-100 hover:p-2 hover:rounded-md hover:transition-all ease-in-out duration-300">
             <IoCall />
-            <span className="text-black sm:text-xs text-sm">اتصل بنا</span>
+            <span className="text-black sm:text-xs text-sm">{t("navbar.contact")}</span>
           </div>
         </Link>
         <LocaleSwitcher />
