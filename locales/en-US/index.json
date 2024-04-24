@@ -4,7 +4,8 @@
       "date": "11.09.2022",
       "conference": "conference",
       "title": "Introduction to Islamic teachings and lifestyle",
-      "summary": "The purpose of the introductory course is to build your foundation for Islamic monotheism and the correct belief of the Companions of the Prophet."
+      "summary": "The purpose of the introductory course is to build your foundation for Islamic monotheism and the correct belief of the Companions of the Prophet.",
+      "more": "More"
     },
     "help": {
       "need help": "Do you have questions?",
@@ -44,6 +45,17 @@
     "sign up": "Join Ataasil",
     "search placeholder": "Search the platform",
     "confrences": "conferences"
+  },
+  "navdropdowns": {
+    "scientific-explanations": "Scientific  explanations",
+    "lecture_meetings": "Lectures & Meetings",
+    "engaged":"He got engaged",
+    "clips & questions": "Clips and questions",
+    "lessons": "Lessons",
+    "audio_recitations": "Audio recitaions",
+    "translations": "Translations",
+    "news": "News",
+    "books": "Books"
   },
 
   "footer": {

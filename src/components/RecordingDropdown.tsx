@@ -5,7 +5,7 @@ import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 
 interface recordingOptions {
-  label: string;
+  label: React.ReactNode;
   link: string;
 }
 

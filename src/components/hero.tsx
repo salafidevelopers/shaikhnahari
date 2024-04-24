@@ -4,8 +4,12 @@ import { FaArrowRight } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsTwitterX } from "react-icons/bs";
+import useTranslation from "next-translate/useTranslation";
+import { useRouter } from "next/router";
 
 const Hero = () => {
+  const router = useRouter();
+  const { t, lang } = useTranslation("index");
   return (
     <div
       className={`flex flex-col h-full items-center justify-between p-24  bg-[url('/assets/hero_bg.jpg')] bg-center bg-cover bg-no-repeat`}
@@ -74,7 +78,8 @@ const Hero = () => {
           </h2>
           <div className="flex justify-center mb-3">
             <button className="gap-2 cursor-pointer flex items-center text-white bg-primary-700 px-2 py-1 rounded-md">
-              <FaArrowRight /> <span>المزيد</span>
+              <FaArrowRight /> <span>{t("home.hero.more")}</span>
+              
             </button>
           </div>
         </div>

@@ -16,18 +16,17 @@ export default function Navbar() {
   const { t, lang } = useTranslation("index");
 
   const options = [
-    { label: "شروحات علمية", link: "/scientific_explanation" },
-    { label: "محاضرات ولقاءات", link: "/lecture_and_meetings" },
-    { label: "خطب", link: "/books_khotab" },
-    { label: "مقاطع وأسئلة", link: "/clips_and_questions" },
-    { label: "دروس مترجمة", link: "/lessons" },
-    { label: "تلاوات صوتية", link: "/audio_recitations" },
-    { label: "Audio recitations", link: "/AudioRecitations" },
+    { label: t("navdropdowns.scientific-explanations"), link: "/scientific_explanation" },
+    { label: t("navdropdowns.lecture_meetings"), link: "/lecture_and_meetings" },
+    { label: t("navdropdowns.engaged"), link: "/books_khotab" },
+    { label: t("navdropdowns.clips & questions"), link: "/clips_and_questions" },
+    { label: t("navdropdowns.lessons"), link: "/lessons" },
+    { label: t("navdropdowns.audio_recitations"), link: "/AudioRecitations" },
   ];
   const recordingOptions = [
-    { label: "ترجمة الشيخ", link: "/#" },
-    { label: "أخبار-الشيخ", link: "/#" },
-    { label: "الكتب", link: "/#" },
+    { label: t("navdropdowns.translations"), link: "/#" },
+    { label: t("navdropdowns.news"), link: "/#" },
+    { label: t("navdropdowns.books"), link: "/#" },
   ];
 
   return (

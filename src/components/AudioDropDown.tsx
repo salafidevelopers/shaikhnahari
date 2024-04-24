@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 
 
 interface Option {
-  label: string;
+  label: React.ReactNode;
   link: string;
 }
 
