@@ -21,7 +21,7 @@ const Biography = ({ content }: { content: string }) => {
   return (
     <>
       <SecondaryHero />
-      <div className="flex flex-grow flex-col justify-center px-10">
+      <div className="flex flex-grow flex-col justify-center px-14 md:px-10">
         <div className="my-4 flex items-center justify-end">
           <BreadcrumbsContainer>
             <BreadcrumbsItem href="/">Home</BreadcrumbsItem>
@@ -37,7 +37,7 @@ const Biography = ({ content }: { content: string }) => {
           </BreadcrumbsContainer>
         </div>
       </div>
-      <section className="flex gap-5 px-10">
+      <section className="flex gap-5 px-14 md:px-10">
         <div className="flex-1 rounded-2xl border-2 bg-[#FEFCFA] p-2 shadow-md">
           <div className="mb-4 flex items-center justify-between py-4">
             <p className="text-3xl text-primary-700">ترجمة الشيخ</p>
@@ -50,7 +50,7 @@ const Biography = ({ content }: { content: string }) => {
               </button>
             </div>
           </div>
-          <div className="prose prose-p:text-sm prose-h3:text-lg">
+          <div className="prose prose-h3:text-lg prose-p:text-sm">
             <ReactMarkdown>{content}</ReactMarkdown>
           </div>
         </div>

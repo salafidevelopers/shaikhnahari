@@ -18,7 +18,7 @@ const ScientificExplains = () => {
   return (
     <>
       <SecondaryHero />
-      <div className="flex flex-grow flex-col justify-center px-10">
+      <div className="flex flex-grow flex-col justify-center px-14 md:px-10">
         <div className="my-4 flex items-center justify-end">
           <BreadcrumbsContainer>
             <BreadcrumbsItem href="/">Home</BreadcrumbsItem>
@@ -34,7 +34,7 @@ const ScientificExplains = () => {
           </BreadcrumbsContainer>
         </div>
       </div>
-      <section className="flex gap-5 px-10">
+      <section className="flex gap-5 px-14 md:px-10">
         <div className="flex-1 rounded-2xl border-2 bg-[#FEFCFA] p-2 shadow-md">
           <div className="mb-4 flex items-center justify-between py-4">
             <p className="text-3xl text-primary-700">الآرشيفات: شروحات علمي</p>

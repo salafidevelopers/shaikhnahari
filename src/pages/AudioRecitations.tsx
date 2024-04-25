@@ -39,14 +39,14 @@ const AudioRecitations: React.FC<Props> = ({ cardUi = dummyData }) => {
     <div>
       <SecondaryHero />
 
-      <div className="flex flex-grow justify-center flex-col px-10">
-        <div className="flex justify-end items-center my-4">
+      <div className="flex flex-grow flex-col justify-center px-14 md:px-10">
+        <div className="my-4 flex items-center justify-end">
           <BreadcrumbsContainer>
             <BreadcrumbsItem href="/">Home</BreadcrumbsItem>
             {pathItems.map((item) => (
               <BreadcrumbsItem key={item.path} href={`/${item.path}`}>
                 {item.name === "loading" ? (
-                  <Spinner className="w-4 h-4" />
+                  <Spinner className="h-4 w-4" />
                 ) : (
                   item.name
                 )}
@@ -55,7 +55,7 @@ const AudioRecitations: React.FC<Props> = ({ cardUi = dummyData }) => {
           </BreadcrumbsContainer>
         </div>
         <section className="audioCards ">
-          <div className="grid grid-cols-2 sm:grid-cols-1 gap-3">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-1">
             {cardUi.map((audioCard) => (
               <div key={audioCard.sys.id}>
                 <AudioRecitationCard />
