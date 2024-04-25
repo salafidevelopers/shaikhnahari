@@ -48,11 +48,11 @@ const AudioCard = ({ size }: { size: Size }) => {
         >
           Download
         </span>
-        <span className="text-3xl font-bold">
+        <span className="text-3xl font-medium">
           <RiDownloadCloud2Line />
         </span>
       </button>
-      <div className="mx-2 text-[12px] font-bold">بتاريخ : 21/يوليو/2015</div>
+      <div className="mx-2 text-[12px] font-medium">بتاريخ : 21/يوليو/2015</div>
     </div>
   );
 };
