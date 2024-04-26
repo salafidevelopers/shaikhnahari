@@ -1,13 +1,15 @@
 import React from "react";
 import { RiDownloadCloud2Line } from "react-icons/ri";
-import { IoPlay } from "react-icons/io5";
 import { HiSpeakerWave } from "react-icons/hi2";
 import { cn } from "@/utils";
 import AudioPlayer from "./AudioPlayer";
 
-type Size = "lg" | "sm";
+interface AudioCardProps {
+  size: "lg" | "sm";
+  audioUrl?: string;
+}
 
-const AudioCard = ({ size }: { size: Size }) => {
+const AudioCard = ({ size, audioUrl }: AudioCardProps) => {
   return (
     <div
       className={cn(
@@ -44,7 +46,7 @@ const AudioCard = ({ size }: { size: Size }) => {
         size={size}
         audioUrl="/assets/audios/umdat_ul_ahkam_01.mp3"
       />
-      <button className="flex items-center gap-3 rounded-md border border-x-2 bg-primary-400 px-3 py-1.5 font-medium">
+      <button className="flex items-center gap-3 rounded-md   bg-primary-400 px-3 py-1.5 font-medium">
         <span
           className={cn(
             "text-[10px]  font-medium",
@@ -57,7 +59,7 @@ const AudioCard = ({ size }: { size: Size }) => {
           <RiDownloadCloud2Line size={22} />
         </span>
       </button>
-      <div className="mx-2 text-[12px] font-medium">بتاريخ : 21/يوليو/2015</div>
+      <div className="mx-2 text-[10px] font-medium">بتاريخ : 21/يوليو/2015</div>
     </div>
   );
 };
