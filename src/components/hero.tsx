@@ -10,26 +10,27 @@ import { useRouter } from "next/router";
 const Hero = () => {
   const router = useRouter();
   const { t, lang } = useTranslation("index");
+
   return (
     <div
-      className={`flex flex-col h-full items-center justify-between p-24  bg-[url('/assets/hero_bg.jpg')] bg-center bg-cover bg-no-repeat`}
+      className={`flex h-full flex-col items-center justify-between bg-[url('/assets/hero_bg.jpg')]  bg-cover bg-center bg-no-repeat p-24`}
     >
-      <div className="flex flex-col items-center justify-between lg:pb-8 lg:pt-16 gap-4">
-        <div className="text-primary-700 space-y-3">
-          <div className="flex justify-center gap-3 items-center py-3">
+      <div className="flex flex-col items-center justify-between gap-4 lg:pb-8 lg:pt-16">
+        <div className="space-y-3 text-primary-700">
+          <div className="flex items-center justify-center gap-3 py-3">
             <FaRegCalendar />
             <p className="text-xs">
               اليوم : الأربعاء 28 فبراير 2024 ميلادى - 18 شعبان 1445 هجرى 
             </p>
           </div>
-          <div className="flex justify-center items-center  gap-3">
+          <div className="flex items-center justify-center  gap-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="w-5 h-5"
+              className="h-5 w-5"
             >
               <path
                 strokeLinecap="round"
@@ -55,20 +56,19 @@ const Hero = () => {
           />
         </div>
 
-        <div className="w-full rounded-full bg-white flex justify-between px-3 py-1 mb-3">
-          <button className="bg-primary-700 rounded-full px-3 py-2 ring-1 ring-primary-400 text-white text-xs cursor-pointer tracking-wide">
-            search
-          </button>
+        <div className="mb-3 flex w-full justify-between rounded-full bg-white px-3 py-1">
           <input
             type="text"
-            dir="ltr"
-            className="text-xs outline-none w-full text-primary-700"
-            placeholder="Enter text here"
+            className="w-full text-xs text-primary-700 outline-none"
+            placeholder={t("navbar.search placeholder")}
           />
+          <button className="cursor-pointer rounded-full bg-primary-700 px-10 py-2 text-xs tracking-wide text-white ring-1 ring-primary-400">
+            Search
+          </button>
         </div>
-        <div className="bg-primary-10 rounded-md mb-3 justify-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 bg-gradient-to-b from-gray-30 via-primary-40 to-primary-40">
+        <div className="bg-primary-10 mb-3 justify-center rounded-md bg-gradient-to-b from-gray-30 via-primary-40 to-primary-40 lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4">
           <h2
-            className={`text-center text-xs text-primary-800 leading-5 py-7 px-3`}
+            className={`px-3 py-7 text-center text-xs leading-5 text-primary-800`}
           >
             هذه ترجمةٌ مختصرةٌ عَنْ شَيْخِنَا الشيخ عَبْدُ الله بْنُ عَبْد
             الرَّحِيْمِ بْنِ حُسْيَن بْنِ مَحْمُودٍ السَّعديُّ ثُمَّ البُخاريُّ
@@ -76,15 +76,14 @@ const Hero = () => {
             عَددٍ من الإخوةِ راغبين فِي معرفة ترجمةٍ عن الشيخِ وهي عبارة عن
             <br /> أسئلةٍ وجَّهتها إليه بعد استئذانه و قبوله حفظه الله.
           </h2>
-          <div className="flex justify-center mb-3">
-            <button className="gap-2 cursor-pointer flex items-center text-white bg-primary-700 px-2 py-1 rounded-md">
+          <div className="mb-3 flex justify-center">
+            <button className="flex cursor-pointer items-center gap-2 rounded-md bg-primary-700 px-2 py-1 text-white">
               <FaArrowRight /> <span>{t("home.hero.more")}</span>
-              
             </button>
           </div>
         </div>
 
-        <div className="flex gap- justify-center gap-3 text-primary-700">
+        <div className="gap- flex justify-center gap-3 text-primary-700">
           <BsTwitterX />
 
           <AiOutlineMail />

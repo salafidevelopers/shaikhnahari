@@ -16,17 +16,26 @@ export default function Navbar() {
   const { t, lang } = useTranslation("index");
 
   const options = [
-    { label: t("navdropdowns.scientific-explanations"), link: "/scientific_explanation" },
-    { label: t("navdropdowns.lecture_meetings"), link: "/lecture_and_meetings" },
-    { label: t("navdropdowns.engaged"), link: "/books_khotab" },
-    { label: t("navdropdowns.clips & questions"), link: "/clips_and_questions" },
+    {
+      label: t("navdropdowns.scientific-explanations"),
+      link: "/scientific_explanation",
+    },
+    {
+      label: t("navdropdowns.lecture_meetings"),
+      link: "/lecture_and_meetings",
+    },
+    { label: t("navdropdowns.sermons_khutba"), link: "/sermons_khutba" },
+    {
+      label: t("navdropdowns.clips & questions"),
+      link: "/clips_and_questions",
+    },
     { label: t("navdropdowns.lessons"), link: "/lessons" },
-    { label: t("navdropdowns.audio_recitations"), link: "/AudioRecitations" },
+    { label: t("navdropdowns.audio_recitations"), link: "/audio_recitations" },
   ];
   const recordingOptions = [
     { label: t("navdropdowns.translations"), link: "/biography" },
     { label: t("navdropdowns.news"), link: "/#" },
-    { label: t("navdropdowns.books"), link: "/#" },
+    { label: t("navdropdowns.books"), link: "/books_khotab" },
   ];
 
   return (
@@ -49,7 +58,7 @@ export default function Navbar() {
         >
           <div className="flex items-center gap-2 text-black  duration-300 ease-in-out hover:rounded-md hover:bg-gray-100 hover:p-2 hover:transition-all">
             <SlBookOpen />
-            <span className="sm:text-xs text-sm">{t("navbar.articles")}</span>
+            <span className="text-sm sm:text-xs">{t("navbar.articles")}</span>
           </div>
         </Link>
         <div>
@@ -58,7 +67,9 @@ export default function Navbar() {
         <Link className={router.pathname == "" ? "active" : ""} href="/contact">
           <div className="flex items-center gap-2 text-black duration-300 ease-in-out hover:rounded-md hover:bg-gray-100 hover:p-2 hover:transition-all">
             <IoCall />
-            <span className="text-black sm:text-xs text-sm">{t("navbar.contact")}</span>
+            <span className="text-sm text-black sm:text-xs">
+              {t("navbar.contact")}
+            </span>
           </div>
         </Link>
         <LocaleSwitcher />
