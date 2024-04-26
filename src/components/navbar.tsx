@@ -58,7 +58,7 @@ export default function Navbar() {
         <Link className={router.pathname == "" ? "active" : ""} href="/contact">
           <div className="flex items-center gap-2 text-black duration-300 ease-in-out hover:rounded-md hover:bg-gray-100 hover:p-2 hover:transition-all">
             <IoCall />
-            <span className="text-black sm:text-xs text-sm">{t("navbar.contact")}</span
+            <span className="text-black sm:text-xs text-sm">{t("navbar.contact")}</span>
           </div>
         </Link>
         <LocaleSwitcher />
