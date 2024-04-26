@@ -33,7 +33,7 @@ export default function Navbar() {
     { label: t("navdropdowns.audio_recitations"), link: "/audio_recitations" },
   ];
   const recordingOptions = [
-    { label: t("navdropdowns.translations"), link: "/biography" },
+    { label: t("navdropdowns.biography"), link: "/biography" },
     { label: t("navdropdowns.news"), link: "/#" },
     { label: t("navdropdowns.books"), link: "/books_khotab" },
   ];

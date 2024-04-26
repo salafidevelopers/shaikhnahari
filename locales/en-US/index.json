@@ -35,7 +35,7 @@
   "navbar": {
     "home": "Home",
     "articles": "Articles",
-    "audio-recitations": "Audio recitations",
+    "audio-recitations": "Audio Recitations",
     "recordings": "Recordings",
     "contact": "Contact us",
     "corporate training": "Corporate Training",
@@ -53,7 +53,7 @@
     "clips & questions": "Clips and Questions",
     "lessons": "Lessons",
     "audio_recitations": "Audio recitaions",
-    "translations": "Translations",
+    "biography": "Biography",
     "news": "News",
     "books": "Books"
   },

@@ -6,10 +6,10 @@ import { GiSpeaker } from "react-icons/gi";
 const ImportantContents = () => {
   return (
     <aside className="self-start rounded-2xl border-2 p-2 shadow-md">
-      <div className="my-2 rounded-md bg-[#844E10] bg-[url('/assets/important_contentBg.jpg')] bg-cover bg-center bg-no-repeat p-4 text-center text-white bg-blend-darken">
+      <div className="my-2 rounded-md bg-primary-700 bg-[url('/assets/important_contentBg.jpg')] bg-cover bg-center bg-no-repeat p-4 text-center text-white bg-blend-darken">
         محتويات هامه
       </div>
-      <div className="mb-4 flex items-center gap-4 rounded-md border-2 border-[#F5D4AE] bg-[#FDF4EB] p-2">
+      <div className="mb-4 flex items-center gap-4 rounded-md border-2 border-primary-300 bg-primary-100 p-2">
         <GiSpeaker size={18} />
         <p className="flex-1 text-sm text-primary-800">
           شرح عمدة الأحكام (مستمر)

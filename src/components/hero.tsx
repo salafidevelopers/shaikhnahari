@@ -6,6 +6,7 @@ import { AiOutlineMail } from "react-icons/ai";
 import { BsTwitterX } from "react-icons/bs";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const Hero = () => {
   const router = useRouter();
@@ -76,11 +77,11 @@ const Hero = () => {
             عَددٍ من الإخوةِ راغبين فِي معرفة ترجمةٍ عن الشيخِ وهي عبارة عن
             <br /> أسئلةٍ وجَّهتها إليه بعد استئذانه و قبوله حفظه الله.
           </h2>
-          <div className="mb-3 flex justify-center">
+          <Link href="/biography" className="mb-3 flex justify-center">
             <button className="flex cursor-pointer items-center gap-2 rounded-md bg-primary-700 px-2 py-1 text-white">
               <FaArrowRight /> <span>{t("home.hero.more")}</span>
             </button>
-          </div>
+          </Link>
         </div>
 
         <div className="gap- flex justify-center gap-3 text-primary-700">

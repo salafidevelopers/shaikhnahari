@@ -1,38 +1,50 @@
-import { useState, useEffect } from 'react';
+import { cn } from "@/utils";
+import { useState, useEffect, SetStateAction } from "react";
+import { IoPlay, IoPause } from "react-icons/io5";
 
-export default function Home() {
-  const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(null);
+export default function PlayerSlider({
+  size,
+  audioUrl,
+}: {
+  size: "lg" | "sm";
+  audioUrl: string;
+}) {
+  const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(
+    null,
+  );
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState('00:00:00');
-  const [duration, setDuration] = useState('00:00:00');
-  const audioFiles = ['audio1.mp3', 'audio2.mp3', 'audio3.mp3'];
-  const [selectedAudio, setSelectedAudio] = useState(audioFiles[0]);
+  const [currentTime, setCurrentTime] = useState("00:00:00");
+  const [duration, setDuration] = useState("00:00:00");
+  const audioFiles = ["audio1.mp3", "audio2.mp3", "audio3.mp3"];
+  const [position, setPosition] =
+    useState<SetStateAction<undefined | number>>();
 
   useEffect(() => {
     const audio = new Audio();
-    audio.addEventListener('loadedmetadata', () => {
+    audio.addEventListener("loadedmetadata", () => {
       setDuration(formatTime(audio.duration));
     });
-    audio.addEventListener('timeupdate', () => {
+    audio.addEventListener("timeupdate", () => {
       setCurrentTime(formatTime(audio.currentTime));
     });
     setAudioElement(audio);
     return () => {
-      audio.removeEventListener('loadedmetadata', () => {});
-      audio.removeEventListener('timeupdate', () => {});
+      audio.removeEventListener("loadedmetadata", () => {});
+      audio.removeEventListener("timeupdate", () => {});
     };
   }, []);
 
   useEffect(() => {
     if (audioElement) {
-      audioElement.src = selectedAudio;
+      audioElement.src = audioUrl;
       if (isPlaying) {
         audioElement.play();
       } else {
         audioElement.pause();
       }
     }
-  }, [audioElement, selectedAudio, isPlaying]);
+    console.log({ position });
+  }, [audioElement, isPlaying, audioUrl, position]);
 
   const togglePlayPause = () => {
     setIsPlaying(!isPlaying);
@@ -50,45 +62,42 @@ export default function Home() {
     const hours = Math.floor(seconds / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
     const remainingSeconds = Math.floor(seconds % 60);
-    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+    return `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
   };
 
   const ballPosition = () => {
-    if (!audioElement || !audioElement.duration) return '0%';
+    if (!audioElement || !audioElement.duration) return "0%";
     const percentage = (audioElement.currentTime / audioElement.duration) * 100;
     const barWidth = 100; // Assuming the progress bar width is 100%
     const ballWidth = 10; // Adjust this value according to the ball width
     const position = (percentage * (barWidth - ballWidth)) / 100;
-    return `${position}%`;
+    setPosition(position);
+    return `${position}`;
   };
 
   return (
-    <div className="">
-      <div className="bg-white rounded-lg shadow-lg flex items-center w-full px-3 gap-1">
-        <button onClick={togglePlayPause} className="py-2 rounded-md ">
-            {isPlaying ? <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-                            <path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd" />
-                        </svg>
-
-                       : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-                            <path fill-rule="evenodd" d="M6.75 5.25a.75.75 0 0 1 .75-.75H9a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H7.5a.75.75 0 0 1-.75-.75V5.25Zm7.5 0A.75.75 0 0 1 15 4.5h1.5a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H15a.75.75 0 0 1-.75-.75V5.25Z" clip-rule="evenodd" />
-                        </svg>
-            }
-        </button>
-
-        <div className="w-full h-2 bg-primary-300 rounded-full relative overflow-hidden">
-          <div
-            className="h-full bg-primary-300 rounded-full absolute top-0"
-            style={{ width: ballPosition(), height: '100%', borderRadius: '50%', transform: 'translateX(-50%)' }}
+    <div className={cn("flex flex-grow gap-2 rounded-md bg-white px-2")}>
+      {size === "lg" && (
+        <div className="flex flex-grow items-center gap-2 text-[13px]">
+          <span className="time">{currentTime}</span>
+          <input
+            type="range"
+            className="w-full rounded-lg bg-primary-300 accent-primary-500"
+            dir="ltr"
+            min="0"
+            max="100"
+            step="1"
+            onChange={ballPosition}
           />
-          <div className="h-2 w-2 bg-primary-800 rounded-full absolute top-0 left-0 right-0" />
+          {/* <span className="time current">{duration}</span> */}
         </div>
-
-        <div className="text-xs flex gap-2 text-primary-700">
-           <span> {currentTime}</span>
-            {/* <span>/{duration}</span> */}
-            </div>
-      </div>
+      )}
+      <button
+        onClick={togglePlayPause}
+        className="rounded-md py-2 text-primary-800"
+      >
+        {isPlaying ? <IoPause size={20} /> : <IoPlay size={20} />}
+      </button>
     </div>
   );
 }
