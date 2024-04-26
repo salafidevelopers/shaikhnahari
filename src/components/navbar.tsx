@@ -24,20 +24,20 @@ export default function Navbar() {
     { label: t("navdropdowns.audio_recitations"), link: "/AudioRecitations" },
   ];
   const recordingOptions = [
-    { label: t("navdropdowns.translations"), link: "/#" },
+    { label: t("navdropdowns.translations"), link: "/biography" },
     { label: t("navdropdowns.news"), link: "/#" },
     { label: t("navdropdowns.books"), link: "/#" },
   ];
 
   return (
     <nav
-      className={`flex  justify-center items-center bg-white py-3 ${alexandria.className}`}
+      className={`flex  items-center justify-center bg-white py-3 ${alexandria.className}`}
     >
-      <div className="flex items-center gap-7 md:gap-4  ring-1 ring-primary-400 p-3 rounded-md">
+      <div className="flex items-center gap-7 rounded-md  p-3 ring-1 ring-primary-400 md:gap-4">
         <Link className={router.pathname == "/" ? "active" : ""} href="/">
-          <div className={`flex items-center  text-black gap-2`}>
+          <div className={`flex items-center  gap-2 text-black`}>
             <GoHomeFill />
-            <span className="sm:text-xs text-sm">{t("navbar.home")}</span>
+            <span className="text-sm sm:text-xs">{t("navbar.home")}</span>
           </div>
         </Link>
         <div>
@@ -47,7 +47,7 @@ export default function Navbar() {
           className={router.pathname == "/articles" ? "active" : ""}
           href="./articles"
         >
-          <div className="flex items-center gap-2 text-black  hover:bg-gray-100 hover:p-2 hover:rounded-md hover:transition-all ease-in-out duration-300">
+          <div className="flex items-center gap-2 text-black  duration-300 ease-in-out hover:rounded-md hover:bg-gray-100 hover:p-2 hover:transition-all">
             <SlBookOpen />
             <span className="sm:text-xs text-sm">{t("navbar.articles")}</span>
           </div>
@@ -55,10 +55,10 @@ export default function Navbar() {
         <div>
           <RecordingsDropdown options={recordingOptions} />
         </div>
-        <Link className={router.pathname == "" ? "active" : ""} href="#">
-          <div className="flex text-black items-center gap-2 hover:bg-gray-100 hover:p-2 hover:rounded-md hover:transition-all ease-in-out duration-300">
+        <Link className={router.pathname == "" ? "active" : ""} href="/contact">
+          <div className="flex items-center gap-2 text-black duration-300 ease-in-out hover:rounded-md hover:bg-gray-100 hover:p-2 hover:transition-all">
             <IoCall />
-            <span className="text-black sm:text-xs text-sm">{t("navbar.contact")}</span>
+            <span className="text-black sm:text-xs text-sm">{t("navbar.contact")}</span
           </div>
         </Link>
         <LocaleSwitcher />

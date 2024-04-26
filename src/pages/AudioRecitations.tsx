@@ -1,12 +1,10 @@
 import React from "react";
-import Image from "next/image";
-import { FaRegCalendar } from "react-icons/fa";
 import AudioRecitationCard from "../components/AudioRecitationCard";
-import { FaFacebookSquare } from "react-icons/fa";
-import { AiOutlineMail } from "react-icons/ai";
-import { BsTwitterX } from "react-icons/bs";
-import Footer from "../components/Footer";
 import SecondaryHero from "@/components/SecondaryHero";
+import { useBreadCrumbs } from "@/components/BreadCrumb/breadcrumbs-context";
+import { usePathname } from "next/navigation";
+import { BreadcrumbsContainer, BreadcrumbsItem } from "@/components/BreadCrumb";
+import { Spinner } from "@/components/spinner";
 
 type AudioRecitationCard = {
   sys: {
@@ -28,22 +26,36 @@ const dummyData: AudioRecitationCard[] = [
 ];
 
 const AudioRecitations: React.FC<Props> = ({ cardUi = dummyData }) => {
+  // useBreadCrumbs("Audio Recitations");
+  const paths = usePathname();
+
+  const pathNames = paths.split("/").filter((path) => path);
+  const pathItems = pathNames.map((path, i) => ({
+    name: path,
+    path: pathNames.slice(0, i + 1).join("/"),
+  }));
+
   return (
     <div>
       <SecondaryHero />
-      <div className="flex flex-grow justify-center flex-col px-10">
-        <div className="flex justify-end items-center my-4">
-          <div className="flex space-x-5 border-t-2 border-neutral-300 border-b-2">
-            <div className="text-primary-700">Audio recitations</div>
-            <div className="flex justify-center ">
-              <span className="text-primary-600">/</span>
-              <span className="px-5 text-primary-700"> Home </span>
-              <span className="text-primary-600">/</span>
-            </div>
-          </div>
+
+      <div className="flex flex-grow flex-col justify-center px-14 md:px-10">
+        <div className="my-4 flex items-center justify-end">
+          <BreadcrumbsContainer>
+            <BreadcrumbsItem href="/">Home</BreadcrumbsItem>
+            {pathItems.map((item) => (
+              <BreadcrumbsItem key={item.path} href={`/${item.path}`}>
+                {item.name === "loading" ? (
+                  <Spinner className="h-4 w-4" />
+                ) : (
+                  item.name
+                )}
+              </BreadcrumbsItem>
+            ))}
+          </BreadcrumbsContainer>
         </div>
         <section className="audioCards ">
-          <div className="grid grid-cols-2 sm:grid-cols-1 gap-3">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-1">
             {cardUi.map((audioCard) => (
               <div key={audioCard.sys.id}>
                 <AudioRecitationCard />
@@ -51,26 +63,6 @@ const AudioRecitations: React.FC<Props> = ({ cardUi = dummyData }) => {
             ))}
           </div>
         </section>
-      </div>
-
-      <div className="px-10 bg-white">
-        <Footer />
-        <div className="">
-          <div className="flex items-center text-lg space-x-3 text-primary-800 pb-1">
-            <span>
-              <FaFacebookSquare />
-            </span>
-            <span>
-              <AiOutlineMail />
-            </span>
-            <span>
-              <BsTwitterX />
-            </span>
-          </div>
-          <span className="text-primary-800 text-sm">
-            All rights reserved to the site - 1436 AH
-          </span>
-        </div>
       </div>
     </div>
   );
