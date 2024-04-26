@@ -15,13 +15,13 @@ const Contact = () => {
   return (
     <>
       <SecondaryHero />
-      <div className="my-4 px-10">
+      <div className="my-4 px-14 md:px-10">
         <BreadcrumbsContainer>
           <BreadcrumbsItem href="/">Home</BreadcrumbsItem>
           {pathItems.map((item) => (
             <BreadcrumbsItem key={item.path} href={`/${item.path}`}>
               {item.name === "loading" ? (
-                <Spinner className="w-4 h-4" />
+                <Spinner className="h-4 w-4" />
               ) : (
                 item.name
               )}
@@ -29,17 +29,17 @@ const Contact = () => {
           ))}
         </BreadcrumbsContainer>
       </div>
-      <section className="px-10">
-        <div className="mb-7 flex justify-between items-center">
-          <h2 className="text-primary-700 text-3xl font-medium">اتصل بنا</h2>
-          <button className="bg-primary-700 rounded-lg py-2 px-3 text-white">
+      <section className="px-14 md:px-10">
+        <div className="mb-7 flex items-center justify-between">
+          <h2 className="text-3xl font-medium text-primary-700">اتصل بنا</h2>
+          <button className="rounded-lg bg-primary-700 px-3 py-2 text-white">
             عدد المواد الموجودة : 29
           </button>
         </div>
 
         <div className="grid grid-cols-4 gap-4">
-          <section className="grid col-span-3 w-full bg-primary-100 border  border-primary-400 rounded-lg p-8">
-            <p className="text-primary-700 mb-4">
+          <section className="col-span-3 grid w-full rounded-lg border  border-primary-400 bg-primary-100 p-8">
+            <p className="mb-4 text-primary-700">
               للتواصل الرسمي مع الموقع عبر النموذج التالي أو من خلال البريد :
               info@elbukhari.com
             </p>
@@ -50,7 +50,7 @@ const Contact = () => {
                   type="text"
                   name=""
                   id=""
-                  className="bg-white border border-gray-200 w-full h-10 rounded-md mt-2"
+                  className="mt-2 h-10 w-full rounded-md border border-gray-200 bg-white"
                 />
               </div>
               <div>
@@ -59,7 +59,7 @@ const Contact = () => {
                   type="email"
                   name=""
                   id=""
-                  className="bg-white border border-gray-200 w-full h-10 rounded-md mt-2"
+                  className="mt-2 h-10 w-full rounded-md border border-gray-200 bg-white"
                 />
               </div>
               <div>
@@ -69,10 +69,10 @@ const Contact = () => {
                   id=""
                   cols={70}
                   rows={10}
-                  className="bg-white border border-gray-200 w-full rounded-md mt-2"
+                  className="mt-2 w-full rounded-md border border-gray-200 bg-white"
                 ></textarea>
               </div>
-              <button className="bg-primary-700 rounded-xl py-4 px-3 text-white">
+              <button className="rounded-xl bg-primary-700 px-3 py-4 text-white">
                 Send message{" "}
               </button>
             </div>
