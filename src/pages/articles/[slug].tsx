@@ -78,9 +78,14 @@ export async function getStaticPaths() {
 
 // Implement getStaticProps to fetch data for a specific slug
 export async function getStaticProps({ params }: { params: { slug: string } }) {
+  // Decode the slug to handle non-ASCII characters properly
+  const decodedSlug = decodeURIComponent(params.slug);
+
+  // Construct the file path using the decoded slug
   const filePath = path.join(
     process.cwd(),
-    `src/utils/articles/${params.slug}.md`,
+    "src/utils/articles",
+    `${decodedSlug}.md`,
   );
 
   try {
