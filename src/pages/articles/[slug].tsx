@@ -82,12 +82,20 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
     process.cwd(),
     `src/utils/articles/${params.slug}.md`,
   );
-  const fileContent = fs.readFileSync(filePath, "utf-8");
-  const { content } = matter(fileContent);
 
-  return {
-    props: {
-      content,
-    },
-  };
+  try {
+    const fileContent = fs.readFileSync(filePath, { encoding: "utf-8" });
+    const { content } = matter(fileContent);
+
+    return {
+      props: {
+        content,
+      },
+    };
+  } catch (error) {
+    console.error("Error reading file:", error);
+    return {
+      notFound: true, // Return 404 page if file not found or cannot be read
+    };
+  }
 }
