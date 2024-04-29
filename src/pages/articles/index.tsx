@@ -6,7 +6,7 @@ import { useBreadcrumb } from "@/hooks/useBreadcrumb";
 import { usePathname } from "next/navigation";
 import React from "react";
 
-const ScientificExplains = () => {
+const Articles = () => {
   const paths = usePathname();
   const { pathItems, getCustomBreadcrumbName } = useBreadcrumb(paths);
 
@@ -35,24 +35,30 @@ const ScientificExplains = () => {
           </div>
           <ol className="space-y-4">
             <ContentCard
-              link="/scientific_explanation"
-              title="شرح عمدة الأحكام (مستمر)"
+              link="/articles"
+              title="العلم: فضله وشرفُ أهله"
               index={1}
             />
             <ContentCard
-              link="/scientific_explanation"
-              title="شرح التقريب والتيسير للنووي (مستمر)"
+              link="/articles"
+              title="أسباب تمادي المرء في الباطل بعد بيانه له"
               index={2}
             />
+            <ContentCard link="/articles" title="العمل بالعلم" index={3} />
             <ContentCard
-              link="/scientific_explanation"
-              title="مجالس السماع في الشمائل المحمدية للترمذي"
-              index={3}
+              link="/articles"
+              title="لا يسقط الهجر لعدم انتفاع المهجور به"
+              index={4}
             />
             <ContentCard
-              link="/scientific_explanation"
-              title="شرح فضل علم السلف على علم الخلف لابن رجب – قطر"
-              index={4}
+              link="/articles"
+              title="بعض قواعد المنهج واصول المنهج السلفي"
+              index={5}
+            />
+            <ContentCard
+              link="/articles"
+              title="الرَّد على الخطأ الذي ظهر وانتشر وذاع أمرٌ لا بدَّ منه على الكفاية "
+              index={6}
             />
           </ol>
         </div>
@@ -63,4 +69,4 @@ const ScientificExplains = () => {
   );
 };
 
-export default ScientificExplains;
+export default Articles;

@@ -37,22 +37,11 @@ const dummyData: AudioRecitationCard[] = [
 ];
 
 const AudioRecitations: React.FC<Props> = ({ cardUi = dummyData }) => {
-  const router = useRouter();
-  // Get the slug from the pathname
-  const { slug } = router.query;
-
   const paths = usePathname();
   // Decode the URL-encoded path to display proper names in breadcrumbs
   const decodedPaths = decodeURIComponent(paths);
 
   const { pathItems, getCustomBreadcrumbName } = useBreadcrumb(decodedPaths);
-
-  const customBreadcrumbNames: Record<string, JSX.Element> = {
-    loading: <Spinner className="h-4 w-4" />,
-    audio_recitations: <span>Audio Recitations</span>,
-
-    // Add more custom mappings here if needed
-  };
 
   return (
     <div>
@@ -63,7 +52,7 @@ const AudioRecitations: React.FC<Props> = ({ cardUi = dummyData }) => {
             <BreadcrumbsItem href="/">Home</BreadcrumbsItem>
             {pathItems.map((item) => (
               <BreadcrumbsItem key={item.path} href={`/${item.path}`}>
-                {getCustomBreadcrumbName(item.name, customBreadcrumbNames)}
+                {getCustomBreadcrumbName(item.name)}
               </BreadcrumbsItem>
             ))}
           </BreadcrumbsContainer>

@@ -3,11 +3,19 @@ import React from "react";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
-const ContentCard = ({ title, index }: { title: string; index: number }) => {
+const ContentCard = ({
+  title,
+  index,
+  link,
+}: {
+  title: string;
+  index: number;
+  link: string;
+}) => {
   return (
     <li className="flex items-center gap-4 rounded-md border-2 border-[#F5D4AE] bg-[#FDF4EB] p-2">
       <Link
-        href={`/scientific_explanation/${encodeURIComponent(title)}`}
+        href={`/${link}/${encodeURIComponent(title)}`}
         className="flex flex-1 cursor-pointer items-center gap-3 text-[13px] font-medium text-primary-800"
       >
         <span>.{index}</span>

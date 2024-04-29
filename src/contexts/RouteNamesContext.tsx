@@ -20,7 +20,9 @@ export const RouteNamesProvider: React.FC<{ children: ReactNode }> = ({
   // Define global custom route names here
   const globalCustomRouteNames: Record<string, JSX.Element | string> = {
     loading: <Spinner className="h-4 w-4" />,
-    // Add more global custom mappings here if needed
+    biography: "Biography",
+    audio_recitations: "Audio Recitations",
+    scientific_explanation: "Scientific Explanation",
   };
 
   return (

@@ -22,12 +22,6 @@ const Biography = ({ content }: { content: string }) => {
 
   const { pathItems, getCustomBreadcrumbName } = useBreadcrumb(decodedPaths);
 
-  const customBreadcrumbNames: Record<string, JSX.Element> = {
-    loading: <Spinner className="h-4 w-4" />,
-    biography: <span>Biography</span>,
-    // Add more custom mappings here if needed
-  };
-
   return (
     <>
       <SecondaryHero />
@@ -37,7 +31,7 @@ const Biography = ({ content }: { content: string }) => {
             <BreadcrumbsItem href="/">Home</BreadcrumbsItem>
             {pathItems.map((item) => (
               <BreadcrumbsItem key={item.path} href={`/${item.path}`}>
-                {getCustomBreadcrumbName(item.name, customBreadcrumbNames)}
+                {getCustomBreadcrumbName(item.name)}
               </BreadcrumbsItem>
             ))}
           </BreadcrumbsContainer>
