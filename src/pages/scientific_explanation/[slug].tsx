@@ -1,8 +1,7 @@
 import AudioCard from "@/components/AudioCard";
-import AudioPlayer from "@/components/AudioPlayer";
-import ContentCard from "@/components/ContentCard";
 import SecondaryHero from "@/components/SecondaryHero";
 import ImportantContents from "@/components/importantContents";
+import { audios } from "@/utils/data";
 import { useRouter } from "next/router";
 import React, { Fragment } from "react";
 
@@ -22,11 +21,14 @@ const Page = () => {
             </p>
           </div>
           <ol className="space-y-4">
-            <AudioCard size={"lg"} />
-            <AudioCard size={"lg"} />
-            <AudioCard size={"lg"} />
-            <AudioCard size={"lg"} />
-            <AudioCard size={"lg"} />
+            {audios.map((audio) => (
+              <AudioCard
+                key={audio.id}
+                size={"lg"}
+                title={audio.title}
+                audioUrl={audio.link}
+              />
+            ))}
           </ol>
         </div>
 
