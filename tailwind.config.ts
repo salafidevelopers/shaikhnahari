@@ -8,7 +8,27 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        "2xl": { max: "1535px" },
+        // => @media (max-width: 1535px) { ... }
+
+        xl: { max: "1279px" },
+        // => @media (max-width: 1279px) { ... }
+
+        lg: { max: "1023px" },
+        // => @media (max-width: 1023px) { ... }
+
+        "2md": { max: "950px" },
+        // => @media (max-width: 950px) { ... }
+
+        md: { max: "767px" },
+        // => @media (max-width: 767px) { ... }
+
+        sm: { max: "639px" },
+        // => @media (max-width: 639px) { ... }
+      },
       backgroundImage: {
+        // 'hero-pattern': "url('/assets/')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
@@ -20,6 +40,7 @@ const config: Config = {
       colors: {
         primary: {
           50: "#fefcfa",
+          40: "#F5D4AE33",
           100: "#fdf4eb",
           200: "#f9e7d2",
           300: "#f5d4ae",
@@ -32,6 +53,7 @@ const config: Config = {
           950: "#2d1b06",
         },
         gray: {
+          30: "#FFFFFF99",
           50: "#fcfcfd",
           100: "#f1f3f6",
           200: "#e0e4ea",
@@ -47,6 +69,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
 export default config;

@@ -1,40 +1,137 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sheikh Yahyah An-Nahari
+
+## A brief description of the project
+
+Sheikh Yahyah An-Nahari website is an online that set out the goal of benefitting mankind with the knowledge of the Qur'an and Sunnah In Shaa Allah.
+
+## Preview
 
 ## Getting Started
 
-First, run the development server:
+Prerequisites include NodeJS v16 and yarn. See Nextjs's Development Environment Setup documentation for more details or issues with initial project installation.
+
+- `Nodejs version 16 or higher`
+- `NPM`
+
+1. First, clone this repo :
+   `git clone https://github.com/AOMuiz/ataasil`
+
+Navigate to the root folder and install all dependencies :
+
+- `npm i`
+
+2. Run the development server:
+
+- Terminal run
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Happy Hacking!
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Folder Structure
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```
+|-- locales/
+  |-- ar/
+  |-- en-US/
+|-- src/
+    |-- components/
+    |-- assets/
+        |-- fonts/
+        |-- icon/
+        |-- images/
+    |-- hooks/
+    |-- redux/
+    |-- pages/
+     |-- index.js/
+     |-- about/
+        |-- index.js
+    |-- utils/
+        |-- lib/
+        |-- index.js
+        |-- constants.js
+        |-- helpers.js
+    |-- App.js
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- `locales`:
+- `shared/assets`: Folder to put assets like fonts, icons and images
+- `components`: Folder to put all shared Component
+- `utils` : Folder to put our helpers function like Consume API and formating data or others helpers and utilities.
+- `hooks` : Folder to put all of ours custom hooks/logic for component.
+- `pages` : Folder to put our different screens for our app such as `home screen`.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Technologies Used
 
-## Learn More
+1. Used `React Js` and `Nextjs` for building the website.
 
-To learn more about Next.js, take a look at the following resources:
+2. Implemented website styling using [`twin.macro(styled Components and tailwindcss)`]([https://github.com/ben-rogerson/twin.examples/tree/832a3b5c2fc1c83dad90859f6f5129506e686db8/next-styled-components).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Used `nextjs` internationalized routing and `next-translate` or other packages such as `react-intl`,
+   `react-i18next` npm package for internationalization(i18n) and localization.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+4. Used `Redux Toolkit` for data and state management.
 
-## Deploy on Vercel
+5. Created `Custom Hooks` for handling fetched data and rendering.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Style Utilities
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Relative Unit
+
+This project using relative unit based 16px. so you can use `1rem` which means `106px` properties in css to help ours styling more easier handling Resposive.
+
+### Media Queries
+
+#### Relative Unit
+
+| BREAKPOINTS | Values |
+| ----------- | ------ |
+| phone       | 600    |
+| tablet      | 950    |
+| laptop      | 1300   |
+
+#### QUERIES
+
+phoneAndSmaller: `(max-width: ${BREAKPOINTS.phone / 16}rem)`,
+tabletAndSmaller: `(max-width: ${BREAKPOINTS.tablet / 16}rem)`,
+laptopAndSmaller: `(max-width: ${BREAKPOINTS.laptop / 16}rem)`,
+
+## Getting Started with Contributions
+
+Contributions are made to this repo via Issues and Pull Requests (PRs), read more in the [Contribution Guideline](./CONTRIBUTING.md). A few general guidelines that cover both:
+
+- Search for existing Issues and PRs before creating your own.
+- We work hard to makes sure issues are handled in a timely manner but, depending on the impact, it could take a while to investigate the root cause. A friendly ping in the comment thread to the submitter or a contributor can help draw attention if your issue is blocking.
+- If you've never contributed before, see [the first timer's guide on our blog](https://auth0.com/blog/a-first-timers-guide-to-an-open-source-project/) for resources and tips on how to get started.
+
+### Issues
+
+Issues should be used to report problems with the project, request a new feature, or to discuss potential changes before a PR is created. When you create a new Issue, a template will be loaded that will guide you through collecting and providing the information we need to investigate.
+
+If you find an Issue that addresses the problem you're having, please add your own reproduction information to the existing issue rather than creating a new one. Adding a [reaction](https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/) can also help be indicating to our maintainers that a particular problem is affecting more than just the reporter.
+
+### Pull Requests
+
+PRs to our project are always welcome and can be a quick way to get your fix or improvement slated for the next release. In general, PRs should:
+
+- Only fix/add the functionality in question **OR** address wide-spread whitespace/style issues, not both.
+- Add unit or integration tests for fixed or changed functionality (if a test suite already exists).
+- Address a single concern in the least number of changed lines as possible.
+- Be accompanied by a complete Pull Request template (loaded automatically when a PR is created).
+
+For changes that address core functionality or would require breaking changes (e.g. a major release), it's best to open an Issue to discuss your proposal first. This is not required but can save time creating and reviewing changes.
+
+In general, we follow the follow guidelines
+
+1. Visit the project repository
+2. Create a remote branch with a succinct but descriptive name e.g aomuiz_create_hero_section
+3. Create and issue and link to the created/repective branch
+4. Clone the project to your machine
+5. Pull the remote branch onto your local machine
+6. Commit changes to the branch
+7. Following any formatting and testing guidelines specific to this repo
+8. Push changes to the remote repository
+9. Open a PR in our repository and follow the PR template so that we can efficiently review the changes.
