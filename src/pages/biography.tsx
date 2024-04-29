@@ -8,30 +8,36 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
+import { useRouter } from "next/router";
+import { useBreadcrumb } from "@/hooks/useBreadcrumb";
 
 const Biography = ({ content }: { content: string }) => {
-  const paths = usePathname();
+  const router = useRouter();
+  // Get the slug from the pathname
+  const { slug } = router.query;
 
-  const pathNames = paths.split("/").filter((path) => path);
-  const pathItems = pathNames.map((path, i) => ({
-    name: path,
-    path: pathNames.slice(0, i + 1).join("/"),
-  }));
+  const paths = usePathname();
+  // Decode the URL-encoded path to display proper names in breadcrumbs
+  const decodedPaths = decodeURIComponent(paths);
+
+  const { pathItems, getCustomBreadcrumbName } = useBreadcrumb(decodedPaths);
+
+  const customBreadcrumbNames: Record<string, JSX.Element> = {
+    loading: <Spinner className="h-4 w-4" />,
+    biography: <span>Biography</span>,
+    // Add more custom mappings here if needed
+  };
 
   return (
     <>
       <SecondaryHero />
       <div className="flex flex-grow flex-col justify-center px-14 md:px-10">
-        <div className="my-4 flex items-center justify-end">
+        <div className="my-4 flex items-center">
           <BreadcrumbsContainer>
             <BreadcrumbsItem href="/">Home</BreadcrumbsItem>
             {pathItems.map((item) => (
               <BreadcrumbsItem key={item.path} href={`/${item.path}`}>
-                {item.name === "loading" ? (
-                  <Spinner className="h-4 w-4" />
-                ) : (
-                  item.name
-                )}
+                {getCustomBreadcrumbName(item.name, customBreadcrumbNames)}
               </BreadcrumbsItem>
             ))}
           </BreadcrumbsContainer>

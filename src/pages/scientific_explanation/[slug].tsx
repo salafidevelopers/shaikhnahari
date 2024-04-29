@@ -1,15 +1,47 @@
 import AudioCard from "@/components/AudioCard";
+import { BreadcrumbsContainer, BreadcrumbsItem } from "@/components/BreadCrumb";
 import SecondaryHero from "@/components/SecondaryHero";
 import ImportantContents from "@/components/importantContents";
+import { Spinner } from "@/components/spinner";
+import { useBreadcrumb } from "@/hooks/useBreadcrumb";
 import { audios } from "@/utils/data";
+import { usePathname } from "next/navigation";
 import { useRouter } from "next/router";
 import React, { Fragment } from "react";
 
 const Page = () => {
   const router = useRouter();
+  // Get the slug from the pathname
+  const { slug } = router.query;
+
+  const paths = usePathname();
+  // Decode the URL-encoded path to display proper names in breadcrumbs
+  const decodedPaths = decodeURIComponent(paths);
+
+  const { pathItems, getCustomBreadcrumbName } = useBreadcrumb(decodedPaths);
+
+  const customBreadcrumbNames: Record<string, JSX.Element> = {
+    loading: <Spinner className="h-4 w-4" />,
+    scientific_explanation: <span>Scientific Explanation</span>,
+    slug: <span>{slug}</span>,
+    // Add more custom mappings here if needed
+  };
+
   return (
     <Fragment>
       <SecondaryHero />
+      <div className="flex flex-grow flex-col justify-center px-14 md:px-10">
+        <div className="my-4 flex items-center">
+          <BreadcrumbsContainer>
+            <BreadcrumbsItem href="/">Home</BreadcrumbsItem>
+            {pathItems.map((item) => (
+              <BreadcrumbsItem key={item.path} href={`/${item.path}`}>
+                {getCustomBreadcrumbName(item.name, customBreadcrumbNames)}
+              </BreadcrumbsItem>
+            ))}
+          </BreadcrumbsContainer>
+        </div>
+      </div>
       <section className="my-4 flex gap-5 px-14 md:px-10">
         <div className="flex-1 rounded-2xl border-2 bg-[#FEFCFA] p-2 shadow-md">
           <div className="mb-4 flex items-center justify-between py-4">
