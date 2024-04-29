@@ -16,29 +16,37 @@ export default function Navbar() {
   const { t, lang } = useTranslation("index");
 
   const options = [
-    { label: "شروحات علمية", link: "/scientific_explanation" },
-    { label: "محاضرات ولقاءات", link: "/lecture_and_meetings" },
-    { label: "خطب", link: "/books_khotab" },
-    { label: "مقاطع وأسئلة", link: "/clips_and_questions" },
-    { label: "دروس مترجمة", link: "/lessons" },
-    { label: "تلاوات صوتية", link: "/audio_recitations" },
-    { label: "Audio recitations", link: "/AudioRecitations" },
+    {
+      label: t("navdropdowns.scientific-explanations"),
+      link: "/scientific_explanation",
+    },
+    {
+      label: t("navdropdowns.lecture_meetings"),
+      link: "/lecture_and_meetings",
+    },
+    { label: t("navdropdowns.sermons_khutba"), link: "/sermons_khutba" },
+    {
+      label: t("navdropdowns.clips & questions"),
+      link: "/clips_and_questions",
+    },
+    { label: t("navdropdowns.lessons"), link: "/lessons" },
+    { label: t("navdropdowns.audio_recitations"), link: "/audio_recitations" },
   ];
   const recordingOptions = [
-    { label: "ترجمة الشيخ", link: "/#" },
-    { label: "أخبار-الشيخ", link: "/#" },
-    { label: "الكتب", link: "/#" },
+    { label: t("navdropdowns.biography"), link: "/biography" },
+    { label: t("navdropdowns.news"), link: "/#" },
+    { label: t("navdropdowns.books"), link: "/books_khotab" },
   ];
 
   return (
     <nav
-      className={`flex  justify-center items-center bg-white py-3 ${alexandria.className}`}
+      className={`flex  items-center justify-center bg-white py-3 ${alexandria.className}`}
     >
-      <div className="flex items-center gap-7 md:gap-4  ring-1 ring-primary-400 p-3 rounded-md">
+      <div className="flex items-center gap-7 rounded-md  p-3 ring-1 ring-primary-400 md:gap-4">
         <Link className={router.pathname == "/" ? "active" : ""} href="/">
-          <div className={`flex items-center  text-black gap-2`}>
+          <div className={`flex items-center  gap-2 text-black`}>
             <GoHomeFill />
-            <span className="sm:text-xs text-sm">{t("navbar.home")}</span>
+            <span className="text-sm sm:text-xs">{t("navbar.home")}</span>
           </div>
         </Link>
         <div>
@@ -48,18 +56,20 @@ export default function Navbar() {
           className={router.pathname == "/articles" ? "active" : ""}
           href="./articles"
         >
-          <div className="flex items-center gap-2 text-black  hover:bg-gray-100 hover:p-2 hover:rounded-md hover:transition-all ease-in-out duration-300">
+          <div className="flex items-center gap-2 text-black  duration-300 ease-in-out hover:rounded-md hover:bg-gray-100 hover:p-2 hover:transition-all">
             <SlBookOpen />
-            <span className="sm:text-xs text-sm">مقالات-الشيخ</span>
+            <span className="text-sm sm:text-xs">{t("navbar.articles")}</span>
           </div>
         </Link>
         <div>
           <RecordingsDropdown options={recordingOptions} />
         </div>
-        <Link className={router.pathname == "" ? "active" : ""} href="#">
-          <div className="flex text-black items-center gap-2 hover:bg-gray-100 hover:p-2 hover:rounded-md hover:transition-all ease-in-out duration-300">
+        <Link className={router.pathname == "" ? "active" : ""} href="/contact">
+          <div className="flex items-center gap-2 text-black duration-300 ease-in-out hover:rounded-md hover:bg-gray-100 hover:p-2 hover:transition-all">
             <IoCall />
-            <span className="text-black sm:text-xs text-sm">اتصل بنا</span>
+            <span className="text-sm text-black sm:text-xs">
+              {t("navbar.contact")}
+            </span>
           </div>
         </Link>
         <LocaleSwitcher />

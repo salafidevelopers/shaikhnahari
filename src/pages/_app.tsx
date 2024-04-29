@@ -1,3 +1,4 @@
+import { BreadCrumbs } from "@/components/BreadCrumb";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/navbar";
 import useDynamicHeight from "@/hooks/useDynamicHeight";
@@ -32,9 +33,10 @@ export default function App({ Component, pageProps }: AppProps) {
         className={`${alexandria.className} ${alexandria.variable} }`}
         style={{ minHeight: `${minHeight}px` }}
       >
+        {/* <BreadCrumbs withHome> */}
         <Component {...pageProps} />
+        {/* </BreadCrumbs> */}
       </main>
-
       <Footer />
     </Fragment>
   );
