@@ -1,15 +1,24 @@
-import { useState, useEffect } from "react";
+import {
+  useState,
+  useEffect,
+  SetStateAction,
+  Dispatch,
+  ChangeEvent,
+} from "react";
 
 interface AudioPlayerState {
   isPlaying: boolean;
   currentTime: string;
   duration: string;
+  position: number;
 }
 
 interface AudioPlayerControls {
   togglePlayPause: () => void;
   stopAudio: () => void;
   downloadAudio: () => void;
+  setPosition: Dispatch<SetStateAction<number>>;
+  handlePosition: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const useAudioPlayer = (
@@ -21,6 +30,7 @@ const useAudioPlayer = (
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState("00:00:00");
   const [duration, setDuration] = useState("00:00:00");
+  const [position, setPosition] = useState(0);
 
   useEffect(() => {
     const audio = new Audio(audioUrl);
@@ -29,6 +39,7 @@ const useAudioPlayer = (
     });
     audio.addEventListener("timeupdate", () => {
       setCurrentTime(formatTime(audio.currentTime));
+      setPosition((audio.currentTime / audio.duration) * 100);
     });
     setAudioElement(audio);
 
@@ -77,6 +88,14 @@ const useAudioPlayer = (
     document.body.removeChild(link);
   };
 
+  const handlePosition = (e: ChangeEvent<HTMLInputElement>) => {
+    const newPosition = parseFloat(e.target.value);
+    if (audioElement) {
+      audioElement.currentTime = (newPosition / 100) * audioElement.duration;
+    }
+    setPosition(newPosition);
+  };
+
   return {
     isPlaying,
     currentTime,
@@ -84,6 +103,9 @@ const useAudioPlayer = (
     togglePlayPause,
     stopAudio,
     downloadAudio,
+    position,
+    setPosition,
+    handlePosition,
   };
 };
 

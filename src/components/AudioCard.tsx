@@ -12,7 +12,7 @@ interface AudioCardProps {
 
 const AudioCard = ({ size, audioUrl, title }: AudioCardProps) => {
   return (
-    <div
+    <article
       className={cn(
         "flex items-center gap-2 rounded-lg border-2 border-primary-300 bg-primary-100  p-2 font-alexandria text-primary-700",
         `${size === "sm" ? "w-full" : ""}`,
@@ -60,8 +60,8 @@ const AudioCard = ({ size, audioUrl, title }: AudioCardProps) => {
           <RiDownloadCloud2Line size={22} />
         </span>
       </button>
-      <div className="mx-2 text-[10px] font-medium">بتاريخ : 21/يوليو/2015</div>
-    </div>
+      <p className="mx-2 text-[10px] font-medium">بتاريخ : 21/يوليو/2015</p>
+    </article>
   );
 };
 

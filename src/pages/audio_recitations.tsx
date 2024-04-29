@@ -54,7 +54,7 @@ const AudioRecitations: React.FC<Props> = ({ cardUi = dummyData }) => {
             ))}
           </BreadcrumbsContainer>
         </div>
-        <section className="audioCards ">
+        <section className="audioCards">
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-1">
             {cardUi.map((audioCard) => (
               <div key={audioCard.sys.id}>

@@ -1,3 +1,4 @@
+import useAudioPlayer from "@/hooks/useAudioPlayer";
 import { cn } from "@/utils";
 import { useState, useEffect } from "react";
 import { IoPlay, IoPause } from "react-icons/io5";
@@ -8,55 +9,16 @@ interface PlayerSliderProps {
 }
 
 const PlayerSlider: React.FC<PlayerSliderProps> = ({ size, audioUrl }) => {
-  const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(
-    null,
-  );
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState("00:00:00");
-  const [duration, setDuration] = useState("00:00:00");
-  const [position, setPosition] = useState(0);
-
-  useEffect(() => {
-    const audio = new Audio(audioUrl);
-    audio.addEventListener("loadedmetadata", () => {
-      setDuration(formatTime(audio.duration));
-    });
-    audio.addEventListener("timeupdate", () => {
-      setCurrentTime(formatTime(audio.currentTime));
-      setPosition((audio.currentTime / audio.duration) * 100);
-    });
-    setAudioElement(audio);
-    return () => {
-      audio.removeEventListener("loadedmetadata", () => {});
-      audio.removeEventListener("timeupdate", () => {});
-    };
-  }, [audioUrl]);
-
-  const togglePlayPause = () => {
-    if (audioElement) {
-      if (!isPlaying) {
-        audioElement.play();
-      } else {
-        audioElement.pause();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const stopAudio = () => {
-    if (audioElement) {
-      audioElement.pause();
-      audioElement.currentTime = 0;
-      setIsPlaying(false);
-    }
-  };
-
-  const formatTime = (seconds: number): string => {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const remainingSeconds = Math.floor(seconds % 60);
-    return `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
-  };
+  const {
+    currentTime,
+    duration,
+    downloadAudio,
+    isPlaying,
+    stopAudio,
+    togglePlayPause,
+    position,
+    handlePosition,
+  } = useAudioPlayer(audioUrl);
 
   return (
     <div
@@ -75,14 +37,7 @@ const PlayerSlider: React.FC<PlayerSliderProps> = ({ size, audioUrl }) => {
             max="100"
             step="0.01"
             value={position}
-            onChange={(e) => {
-              const newPosition = parseFloat(e.target.value);
-              if (audioElement) {
-                audioElement.currentTime =
-                  (newPosition / 100) * audioElement.duration;
-              }
-              setPosition(newPosition);
-            }}
+            onChange={handlePosition}
           />
           <span className="text-[10px]">{duration}</span>
         </div>
