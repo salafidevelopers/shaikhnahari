@@ -1,5 +1,6 @@
 import { BreadcrumbsContainer, BreadcrumbsItem } from "@/components/BreadCrumb";
 import ContentCard from "@/components/ContentCard";
+import ContentLayout from "@/components/ContentLayout";
 import SecondaryHero from "@/components/SecondaryHero";
 import ImportantContents from "@/components/importantContents";
 import { useBreadcrumb } from "@/hooks/useBreadcrumb";
@@ -25,7 +26,7 @@ const Articles = () => {
           </BreadcrumbsContainer>
         </div>
       </div>
-      <section className="flex gap-5 px-14 md:px-10">
+      <ContentLayout>
         <div className="flex-1 rounded-2xl border-2 bg-[#FEFCFA] p-2 shadow-md">
           <div className="mb-4 flex items-center justify-between py-4">
             <p className="text-3xl text-primary-700">الآرشيفات: مقالات-الشيخ</p>
@@ -62,9 +63,7 @@ const Articles = () => {
             />
           </ul>
         </div>
-
-        <ImportantContents />
-      </section>
+      </ContentLayout>
     </>
   );
 };

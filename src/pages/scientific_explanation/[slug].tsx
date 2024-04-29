@@ -1,5 +1,6 @@
 import AudioCard from "@/components/AudioCard";
 import { BreadcrumbsContainer, BreadcrumbsItem } from "@/components/BreadCrumb";
+import ContentLayout from "@/components/ContentLayout";
 import SecondaryHero from "@/components/SecondaryHero";
 import ImportantContents from "@/components/importantContents";
 import { Spinner } from "@/components/spinner";
@@ -41,7 +42,7 @@ const Page = () => {
           </BreadcrumbsContainer>
         </div>
       </div>
-      <section className="my-4 flex gap-5 px-14 md:px-10">
+      <ContentLayout>
         <div className="flex-1 rounded-2xl border-2 bg-[#FEFCFA] p-2 shadow-md">
           <div className="mb-4 flex items-center justify-between py-4">
             <p className="text-3xl text-primary-700">{slug}</p>
@@ -60,9 +61,7 @@ const Page = () => {
             ))}
           </ol>
         </div>
-
-        <ImportantContents />
-      </section>
+      </ContentLayout>
     </Fragment>
   );
 };

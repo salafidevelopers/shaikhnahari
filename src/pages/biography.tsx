@@ -10,6 +10,7 @@ import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import { useRouter } from "next/router";
 import { useBreadcrumb } from "@/hooks/useBreadcrumb";
+import ContentLayout from "@/components/ContentLayout";
 
 const Biography = ({ content }: { content: string }) => {
   const router = useRouter();
@@ -37,7 +38,7 @@ const Biography = ({ content }: { content: string }) => {
           </BreadcrumbsContainer>
         </div>
       </div>
-      <section className="flex gap-5 px-14 md:px-10">
+      <ContentLayout>
         <div className="flex-1 rounded-2xl border-2 bg-[#FEFCFA] p-2 shadow-md">
           <div className="mb-4 flex items-center justify-between py-4">
             <p className="text-3xl text-primary-700">ترجمة الشيخ</p>
@@ -54,9 +55,7 @@ const Biography = ({ content }: { content: string }) => {
             <ReactMarkdown>{content}</ReactMarkdown>
           </div>
         </div>
-
-        <ImportantContents />
-      </section>
+      </ContentLayout>
     </>
   );
 };

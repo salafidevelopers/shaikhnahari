@@ -11,6 +11,7 @@ import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import { useRouter } from "next/router";
 import { useBreadcrumb } from "@/hooks/useBreadcrumb";
+import ContentLayout from "@/components/ContentLayout";
 
 interface ArticleProps {
   content: string;
@@ -40,7 +41,7 @@ const Article: React.FC<ArticleProps> = ({ content }) => {
           </BreadcrumbsContainer>
         </div>
       </div>
-      <section className="flex gap-5 px-14 md:px-10">
+      <ContentLayout>
         <article className="flex-1 rounded-2xl border-2 bg-[#FEFCFA] px-3 py-4 shadow-md">
           <div className="mb-4 flex items-center justify-between pb-4">
             <p className="text-3xl text-primary-700">{slug}</p>
@@ -52,8 +53,7 @@ const Article: React.FC<ArticleProps> = ({ content }) => {
             <ReactMarkdown>{content}</ReactMarkdown>
           </div>
         </article>
-        <ImportantContents />
-      </section>
+      </ContentLayout>
     </>
   );
 };
