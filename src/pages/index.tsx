@@ -1,5 +1,6 @@
 import AudioCard from "@/components/AudioCard";
 import Hero from "@/components/hero";
+import { audios } from "@/utils/data";
 
 export default function Home() {
   return (
@@ -14,10 +15,14 @@ export default function Home() {
             </button>
           </div>
           <div className="space-y-4">
-            <AudioCard size="lg" />
-            <AudioCard size="lg" />
-            <AudioCard size="lg" />
-            <AudioCard size="lg" />
+            {audios.map((audio) => (
+              <AudioCard
+                key={audio.id}
+                size={"lg"}
+                title={audio.title}
+                audioUrl={audio.link}
+              />
+            ))}
           </div>
         </section>
 
@@ -30,10 +35,14 @@ export default function Home() {
               </button>
             </div>
             <div className="space-y-4">
-              <AudioCard size="sm" />
-              <AudioCard size="sm" />
-              <AudioCard size="sm" />
-              <AudioCard size="sm" />
+              {audios.map((audio) => (
+                <AudioCard
+                  key={audio.id}
+                  size={"sm"}
+                  title={audio.title}
+                  audioUrl={audio.link}
+                />
+              ))}
             </div>
           </div>
           <div className=" rounded-md border border-primary-200 p-3 shadow-md">
@@ -44,10 +53,14 @@ export default function Home() {
               </button>
             </div>
             <div className="space-y-4">
-              <AudioCard size="sm" />
-              <AudioCard size="sm" />
-              <AudioCard size="sm" />
-              <AudioCard size="sm" />
+              {audios.map((audio) => (
+                <AudioCard
+                  key={audio.id}
+                  size={"sm"}
+                  title={audio.title}
+                  audioUrl={audio.link}
+                />
+              ))}
             </div>
           </div>
           <div className=" rounded-md border border-primary-200 p-3 shadow-md">
@@ -58,20 +71,28 @@ export default function Home() {
               </button>
             </div>
             <div className="space-y-4">
-              <AudioCard size="sm" />
-              <AudioCard size="sm" />
-              <AudioCard size="sm" />
-              <AudioCard size="sm" />
+              {audios.map((audio) => (
+                <AudioCard
+                  key={audio.id}
+                  size={"sm"}
+                  title={audio.title}
+                  audioUrl={audio.link}
+                />
+              ))}
             </div>
           </div>
         </section>
 
         <section className="">
           <div className="space-y-3 rounded-md border border-primary-200 bg-white p-3 shadow-md">
-            <AudioCard size="lg" />
-            <AudioCard size="lg" />
-            <AudioCard size="lg" />
-            <AudioCard size="lg" />
+            {audios.map((audio) => (
+              <AudioCard
+                key={audio.id}
+                size={"lg"}
+                title={audio.title}
+                audioUrl={audio.link}
+              />
+            ))}
           </div>
         </section>
       </div>

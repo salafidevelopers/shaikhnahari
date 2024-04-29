@@ -7,9 +7,10 @@ import AudioPlayer from "./AudioPlayer";
 interface AudioCardProps {
   size: "lg" | "sm";
   audioUrl?: string;
+  title?: string;
 }
 
-const AudioCard = ({ size, audioUrl }: AudioCardProps) => {
+const AudioCard = ({ size, audioUrl, title }: AudioCardProps) => {
   return (
     <div
       className={cn(
@@ -20,9 +21,9 @@ const AudioCard = ({ size, audioUrl }: AudioCardProps) => {
       <span className="text-xl font-bold text-primary-950">
         <HiSpeakerWave size={18} />
       </span>
-      <div className={cn("text-[12px] font-medium")}>
-        العلم: فضله وشرفُ أهله
-      </div>
+      <p className={cn("text-[12px] font-medium")}>
+        {title ? title : "شرح عمدة الأحكام (1) "}
+      </p>
       {/* <div className={cn("flex flex-grow rounded-md bg-white px-2 py-2.5")}>
         {size === "lg" && (
           <div className="flex flex-grow items-center gap-2 text-[13px]">
@@ -44,7 +45,7 @@ const AudioCard = ({ size, audioUrl }: AudioCardProps) => {
       </div> */}
       <AudioPlayer
         size={size}
-        audioUrl="/assets/audios/umdat_ul_ahkam_01.mp3"
+        audioUrl={audioUrl ? audioUrl : "/assets/audios/umdat_ul_ahkam_01.mp3"}
       />
       <button className="flex items-center gap-3 rounded-md   bg-primary-400 px-3 py-1.5 font-medium">
         <span
