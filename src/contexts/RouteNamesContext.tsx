@@ -23,6 +23,8 @@ export const RouteNamesProvider: React.FC<{ children: ReactNode }> = ({
     biography: "Biography",
     audio_recitations: "Audio Recitations",
     scientific_explanation: "Scientific Explanation",
+    articles: "Articles",
+    contact: "Contact",
   };
 
   return (

@@ -28,12 +28,12 @@ const Articles = () => {
       <section className="flex gap-5 px-14 md:px-10">
         <div className="flex-1 rounded-2xl border-2 bg-[#FEFCFA] p-2 shadow-md">
           <div className="mb-4 flex items-center justify-between py-4">
-            <p className="text-3xl text-primary-700">الآرشيفات: شروحات علمي</p>
+            <p className="text-3xl text-primary-700">الآرشيفات: مقالات-الشيخ</p>
             <p className="rounded-md bg-[#844E10] p-2 text-white">
               عدد المواد الموجودة : 29{" "}
             </p>
           </div>
-          <ol className="space-y-4">
+          <ul className="space-y-4">
             <ContentCard
               link="/articles"
               title="العلم: فضله وشرفُ أهله"
@@ -60,7 +60,7 @@ const Articles = () => {
               title="الرَّد على الخطأ الذي ظهر وانتشر وذاع أمرٌ لا بدَّ منه على الكفاية "
               index={6}
             />
-          </ol>
+          </ul>
         </div>
 
         <ImportantContents />

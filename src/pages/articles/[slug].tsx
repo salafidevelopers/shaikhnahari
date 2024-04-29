@@ -1,33 +1,32 @@
-import AudioCard from "@/components/AudioCard";
+// pages/articles/[slug].tsx
 import { BreadcrumbsContainer, BreadcrumbsItem } from "@/components/BreadCrumb";
 import SecondaryHero from "@/components/SecondaryHero";
 import ImportantContents from "@/components/importantContents";
 import { Spinner } from "@/components/spinner";
-import { useBreadcrumb } from "@/hooks/useBreadcrumb";
-import { audios } from "@/utils/data";
 import { usePathname } from "next/navigation";
+import React from "react";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import ReactMarkdown from "react-markdown";
 import { useRouter } from "next/router";
-import React, { Fragment } from "react";
+import { useBreadcrumb } from "@/hooks/useBreadcrumb";
 
-const Page = () => {
+interface ArticleProps {
+  content: string;
+}
+
+const Article: React.FC<ArticleProps> = ({ content }) => {
   const router = useRouter();
-  // Get the slug from the pathname
   const { slug } = router.query;
 
   const paths = usePathname();
-  // Decode the URL-encoded path to display proper names in breadcrumbs
   const decodedPaths = decodeURIComponent(paths);
 
   const { pathItems, getCustomBreadcrumbName } = useBreadcrumb(decodedPaths);
-  console.log({ decodedPaths });
-
-  const customBreadcrumbNames: Record<string, JSX.Element | string> = {
-    slug: `${slug}`,
-    // Add more custom mappings here if needed
-  };
 
   return (
-    <Fragment>
+    <>
       <SecondaryHero />
       <div className="flex flex-grow flex-col justify-center px-14 md:px-10">
         <div className="my-4 flex items-center">
@@ -35,36 +34,60 @@ const Page = () => {
             <BreadcrumbsItem href="/">Home</BreadcrumbsItem>
             {pathItems.map((item) => (
               <BreadcrumbsItem key={item.path} href={`/${item.path}`}>
-                {getCustomBreadcrumbName(item.name, customBreadcrumbNames)}
+                {getCustomBreadcrumbName(item.name)}
               </BreadcrumbsItem>
             ))}
           </BreadcrumbsContainer>
         </div>
       </div>
-      <section className="my-4 flex gap-5 px-14 md:px-10">
-        <div className="flex-1 rounded-2xl border-2 bg-[#FEFCFA] p-2 shadow-md">
-          <div className="mb-4 flex items-center justify-between py-4">
+      <section className="flex gap-5 px-14 md:px-10">
+        <article className="flex-1 rounded-2xl border-2 bg-[#FEFCFA] px-3 py-4 shadow-md">
+          <div className="mb-4 flex items-center justify-between pb-4">
             <p className="text-3xl text-primary-700">{slug}</p>
-            <p className="rounded-md bg-[#844E10] p-2 text-white">
-              عدد المواد الموجودة : 29{" "}
-            </p>
+            <button className="rounded-md bg-primary-700 p-2 text-white">
+              أضيف فى : 10 يوليو 2015
+            </button>
           </div>
-          <ol className="space-y-4">
-            {audios.map((audio) => (
-              <AudioCard
-                key={audio.id}
-                size={"lg"}
-                title={audio.title}
-                audioUrl={audio.link}
-              />
-            ))}
-          </ol>
-        </div>
-
+          <div className="prose prose-h3:text-lg prose-p:text-sm">
+            <ReactMarkdown>{content}</ReactMarkdown>
+          </div>
+        </article>
         <ImportantContents />
       </section>
-    </Fragment>
+    </>
   );
 };
 
-export default Page;
+export default Article;
+
+// Implement getStaticPaths to define dynamic paths
+export async function getStaticPaths() {
+  // Define the list of possible slugs dynamically (e.g., from a data source)
+  const articlesDirectory = path.join(process.cwd(), "src/utils/articles");
+  const fileNames = fs.readdirSync(articlesDirectory);
+
+  const paths = fileNames.map((fileName) => ({
+    params: { slug: fileName.replace(/\.md$/, "") },
+  }));
+
+  return {
+    paths,
+    fallback: false, // Set fallback to false to pre-render only the defined paths
+  };
+}
+
+// Implement getStaticProps to fetch data for a specific slug
+export async function getStaticProps({ params }: { params: { slug: string } }) {
+  const filePath = path.join(
+    process.cwd(),
+    `src/utils/articles/${params.slug}.md`,
+  );
+  const fileContent = fs.readFileSync(filePath, "utf-8");
+  const { content } = matter(fileContent);
+
+  return {
+    props: {
+      content,
+    },
+  };
+}
