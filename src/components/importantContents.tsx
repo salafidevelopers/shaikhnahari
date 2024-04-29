@@ -1,8 +1,4 @@
 import React from "react";
-import { FaPlay } from "react-icons/fa";
-import { BsCloudDownload } from "react-icons/bs";
-import { GiSpeaker } from "react-icons/gi";
-import AudioCard from "./AudioCard";
 import ImportantContentCard from "./ImportantContentCard";
 
 const ImportantContents = () => {
