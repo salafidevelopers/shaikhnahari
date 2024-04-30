@@ -34,8 +34,8 @@ const RecordingsDropdown: React.FC<RecordingsDropdownProps> = ({ options }) => {
       onMouseLeave={handleMouseLeave}
     >
       <button className="dropdown-toggle">
-        <span className="flex items-center gap-2 text-black hover:bg-gray-100 hover:p-2 hover:rounded-md hover:transition-all ease-in-out duration-300">
-          <span className="md:text-xs text-sm"> {t("navbar.recordings")}</span>
+        <span className="flex items-center gap-2 text-black duration-300 ease-in-out hover:rounded-md hover:bg-gray-100 hover:p-2 hover:transition-all">
+          <span className="text-sm md:text-xs">{t("navbar.about-sheikh")}</span>
           <IoIosArrowDown />
         </span>
       </button>
