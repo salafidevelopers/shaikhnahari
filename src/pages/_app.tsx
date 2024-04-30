@@ -1,6 +1,7 @@
 import { BreadCrumbs } from "@/components/BreadCrumb";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/navbar";
+import { RouteNamesProvider } from "@/contexts/RouteNamesContext";
 import useDynamicHeight from "@/hooks/useDynamicHeight";
 import "@/styles/globals.css";
 import { alexandria } from "@/utils";
@@ -33,9 +34,9 @@ export default function App({ Component, pageProps }: AppProps) {
         className={`${alexandria.className} ${alexandria.variable} }`}
         style={{ minHeight: `${minHeight}px` }}
       >
-        {/* <BreadCrumbs withHome> */}
-        <Component {...pageProps} />
-        {/* </BreadCrumbs> */}
+        <RouteNamesProvider>
+          <Component {...pageProps} />
+        </RouteNamesProvider>
       </main>
       <Footer />
     </Fragment>

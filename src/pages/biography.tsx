@@ -8,36 +8,37 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
+import { useRouter } from "next/router";
+import { useBreadcrumb } from "@/hooks/useBreadcrumb";
+import ContentLayout from "@/components/ContentLayout";
 
 const Biography = ({ content }: { content: string }) => {
-  const paths = usePathname();
+  const router = useRouter();
+  // Get the slug from the pathname
+  const { slug } = router.query;
 
-  const pathNames = paths.split("/").filter((path) => path);
-  const pathItems = pathNames.map((path, i) => ({
-    name: path,
-    path: pathNames.slice(0, i + 1).join("/"),
-  }));
+  const paths = usePathname();
+  // Decode the URL-encoded path to display proper names in breadcrumbs
+  const decodedPaths = decodeURIComponent(paths);
+
+  const { pathItems, getCustomBreadcrumbName } = useBreadcrumb(decodedPaths);
 
   return (
     <>
       <SecondaryHero />
       <div className="flex flex-grow flex-col justify-center px-14 md:px-10">
-        <div className="my-4 flex items-center justify-end">
+        <div className="my-4 flex items-center">
           <BreadcrumbsContainer>
             <BreadcrumbsItem href="/">Home</BreadcrumbsItem>
             {pathItems.map((item) => (
               <BreadcrumbsItem key={item.path} href={`/${item.path}`}>
-                {item.name === "loading" ? (
-                  <Spinner className="h-4 w-4" />
-                ) : (
-                  item.name
-                )}
+                {getCustomBreadcrumbName(item.name)}
               </BreadcrumbsItem>
             ))}
           </BreadcrumbsContainer>
         </div>
       </div>
-      <section className="flex gap-5 px-14 md:px-10">
+      <ContentLayout>
         <div className="flex-1 rounded-2xl border-2 bg-[#FEFCFA] p-2 shadow-md">
           <div className="mb-4 flex items-center justify-between py-4">
             <p className="text-3xl text-primary-700">ترجمة الشيخ</p>
@@ -54,9 +55,7 @@ const Biography = ({ content }: { content: string }) => {
             <ReactMarkdown>{content}</ReactMarkdown>
           </div>
         </div>
-
-        <ImportantContents />
-      </section>
+      </ContentLayout>
     </>
   );
 };

@@ -37,7 +37,7 @@ export const BreadcrumbsContainer = ({
   children,
   separator = "/",
 }: BreadcrumbsContainerProps) => (
-  <nav className="min-h-6 py-2 border-t-2 border-neutral-300 border-b-2 w-fit">
+  <nav className="min-h-6 w-fit border-b-2 border-t-2 border-neutral-300 py-2">
     <ol className="flex items-center gap-4 text-primary-700">
       {Children.map(children, (child, index) => (
         <>
@@ -62,7 +62,7 @@ export const BreadCrumbs = ({
       trailingPath,
       setTrailingPath,
     }),
-    [trailingPath]
+    [trailingPath],
   );
 
   const pathNames = paths.split("/").filter((path) => path);
@@ -86,7 +86,7 @@ export const BreadCrumbs = ({
         {pathItems.map((item) => (
           <BreadcrumbsItem key={item.path} href={`/${item.path}`}>
             {item.name === "loading" ? (
-              <Spinner className="w-4 h-4" />
+              <Spinner className="h-4 w-4" />
             ) : (
               item.name
             )}

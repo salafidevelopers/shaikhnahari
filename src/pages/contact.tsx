@@ -1,17 +1,14 @@
 import { BreadcrumbsContainer, BreadcrumbsItem } from "@/components/BreadCrumb";
 import SecondaryHero from "@/components/SecondaryHero";
 import { Spinner } from "@/components/spinner";
+import { useBreadcrumb } from "@/hooks/useBreadcrumb";
 import { usePathname } from "next/navigation";
 import React from "react";
 
 const Contact = () => {
   const paths = usePathname();
 
-  const pathNames = paths.split("/").filter((path) => path);
-  const pathItems = pathNames.map((path, i) => ({
-    name: path,
-    path: pathNames.slice(0, i + 1).join("/"),
-  }));
+  const { pathItems, getCustomBreadcrumbName } = useBreadcrumb(paths);
   return (
     <>
       <SecondaryHero />
@@ -20,11 +17,7 @@ const Contact = () => {
           <BreadcrumbsItem href="/">Home</BreadcrumbsItem>
           {pathItems.map((item) => (
             <BreadcrumbsItem key={item.path} href={`/${item.path}`}>
-              {item.name === "loading" ? (
-                <Spinner className="h-4 w-4" />
-              ) : (
-                item.name
-              )}
+              {getCustomBreadcrumbName(item.name)}
             </BreadcrumbsItem>
           ))}
         </BreadcrumbsContainer>
@@ -41,7 +34,7 @@ const Contact = () => {
           <section className="col-span-3 grid w-full rounded-lg border  border-primary-400 bg-primary-100 p-8">
             <p className="mb-4 text-primary-700">
               للتواصل الرسمي مع الموقع عبر النموذج التالي أو من خلال البريد :
-              info@elbukhari.com
+              info@an-nahari.com
             </p>
             <div className="space-y-4">
               <div>
@@ -77,7 +70,32 @@ const Contact = () => {
               </button>
             </div>
           </section>
-          <section className="col-span-1 h-10 bg-red-50"></section>
+          <section className="col-span-1 grid gap-5">
+            <div className=" overflow-hidden rounded-md bg-primary-200">
+              <div className="bg-primary-700 bg-[url('/assets/contact-asidebg.jpg')] bg-cover bg-center bg-no-repeat p-4  text-white bg-blend-darken">
+                <p className="text-3xl font-medium ">اتصل بنا</p>
+              </div>
+              <ul className="list-inside list-disc space-y-3 p-3 text-sm">
+                <li>يوليو 2015</li>
+                <li>يوليو 2015</li>
+              </ul>
+            </div>
+            <div className="overflow-hidden rounded-md bg-primary-200">
+              <div className="bg-primary-700 bg-[url('/assets/contact-asidebg.jpg')] bg-cover bg-center bg-no-repeat p-4 text-white bg-blend-darken">
+                <p className="text-3xl font-medium">مواضيع هامه</p>
+              </div>
+              <ul className="list-inside list-disc space-y-3 p-3 text-sm">
+                <li>
+                  تتوقف دروس فضيلة الشيخ عبد الله بن عبد الرحيم البخاري إلى
+                  إشعار آخر - 13٬464
+                </li>
+                <li>
+                  تتوقف دروس فضيلة الشيخ عبد الله بن عبد الرحيم البخاري إلى
+                  إشعار آخر - 13٬464
+                </li>
+              </ul>
+            </div>
+          </section>
         </div>
       </section>
     </>
