@@ -1,8 +1,5 @@
-// pages/articles/[slug].tsx
 import { BreadcrumbsContainer, BreadcrumbsItem } from "@/components/BreadCrumb";
 import SecondaryHero from "@/components/SecondaryHero";
-import ImportantContents from "@/components/importantContents";
-import { Spinner } from "@/components/spinner";
 import { usePathname } from "next/navigation";
 import React from "react";
 import fs from "fs";
@@ -65,6 +62,8 @@ export async function getStaticPaths() {
   // Define the list of possible slugs dynamically (e.g., from a data source)
   const articlesDirectory = path.join(process.cwd(), "src/utils/articles");
   const fileNames = fs.readdirSync(articlesDirectory);
+
+  console.log({ fileNames });
 
   const paths = fileNames.map((fileName) => ({
     params: { slug: fileName.replace(/\.md$/, "") },
