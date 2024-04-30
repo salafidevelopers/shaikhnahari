@@ -1,3 +1,4 @@
+import { cn } from "@/utils";
 import Link from "next/link";
 import React from "react";
 import { FaFacebookSquare } from "react-icons/fa";
@@ -10,13 +11,16 @@ const ContentCard = ({
 }: {
   title: string;
   index: number;
-  link: string;
+  link?: string;
 }) => {
   return (
     <li className="flex items-center gap-4 rounded-md border-2 border-primary-300 bg-primary-100 p-2">
       <Link
-        href={`${link}/${encodeURIComponent(title)}`}
-        className="flex flex-1 cursor-pointer items-center gap-3 text-[13px] font-medium text-primary-800"
+        href={`${link}/${title}`}
+        className={cn(
+          "flex flex-1 cursor-pointer items-center gap-3 text-[13px] font-medium text-primary-800",
+          !link && "pointer-events-none cursor-not-allowed",
+        )}
       >
         <span>.{index}</span>
         <p className="text-xs">{title}</p>
