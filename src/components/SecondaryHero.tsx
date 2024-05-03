@@ -2,10 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaRegCalendar } from "react-icons/fa";
+import logo from "/public/assets/logo.png";
 
 const SecondaryHero = () => {
   return (
-    <div className="space-y-4 bg-[url('/assets/hero_bg.jpg')] bg-cover bg-center bg-no-repeat pb-10 pt-16 text-primary-700">
+    <div className="space-y-4 bg-[url('/assets/hero_bg.jpg')] bg-cover bg-center bg-no-repeat px-10 pb-10 pt-16 text-primary-700">
       <div className="flex items-center justify-center gap-3 py-3">
         <FaRegCalendar />
         <span className="text-xs">
@@ -35,12 +36,11 @@ const SecondaryHero = () => {
       </div>
       <Link href="/" className="flex items-center justify-center">
         <Image
-          className="py-5"
-          src="/assets/logo.png"
+          className="py-5 md:w-[300px]"
+          src={logo}
           alt="Logo"
-          width={400}
-          height={100}
           priority
+          sizes="100vw"
         />
       </Link>
     </div>

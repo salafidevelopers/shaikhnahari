@@ -27,9 +27,11 @@ const Articles = () => {
       </div>
       <ContentLayout>
         <div className="flex-1 rounded-2xl border-2 bg-[#FEFCFA] p-2 shadow-md">
-          <div className="mb-4 flex items-center justify-between py-4">
-            <p className="text-3xl text-primary-700">الآرشيفات: مقالات-الشيخ</p>
-            <p className="rounded-md bg-[#844E10] p-2 text-white">
+          <div className="mb-4 flex items-center justify-between gap-3 py-4 md:flex-wrap">
+            <p className="text-3xl text-primary-700 md:text-xl">
+              الآرشيفات: مقالات-الشيخ
+            </p>
+            <p className="rounded-md bg-[#844E10] p-2 text-white md:text-sm">
               عدد المواد الموجودة : 29{" "}
             </p>
           </div>
