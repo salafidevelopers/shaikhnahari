@@ -17,7 +17,7 @@ const Hero = () => {
       className={`flex h-full flex-col items-center justify-between bg-[url('/assets/hero_bg.jpg')]  bg-cover bg-center bg-no-repeat p-24`}
     >
       <div className="flex flex-col items-center justify-between gap-4 lg:pb-8 lg:pt-16">
-        <div className="space-y-3 text-primary-700">
+        <div className="space-y-3 text-primary-700 sm:py-14 py-0">
           <div className="flex items-center justify-center gap-3 py-3">
             <FaRegCalendar />
             <p className="text-xs">
@@ -57,10 +57,10 @@ const Hero = () => {
           />
         </div>
 
-        <div className="mb-3 flex w-full justify-between rounded-full bg-white px-3 py-1">
+        <div className="mb-3 sm:flex sm:flex-col flex w-full justify-between sm:space-y-5 rounded-full sm:bg-transparent bg-white px-3 py-1">
           <input
             type="text"
-            className="w-full text-xs text-primary-700 outline-none"
+            className=" text-xs text-primary-700 outline-none sm:h-[40px] sm:rounded-full sm:px-5"
             placeholder={t("navbar.search placeholder")}
           />
           <button className="cursor-pointer rounded-full bg-primary-700 px-10 py-2 text-xs tracking-wide text-white ring-1 ring-primary-400">

@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <footer className={`px-14 md:px-10 ${alexandria.className}`}>
       <div className="my-10 rounded-md bg-primary-800 p-5 pb-0">
-        <p className="flex text-3xl text-white">القائمة البريدية</p>
+        <p className="flex text-3xl sm:text-sm text-white">القائمة البريدية</p>
         <div className="flex space-x-0">
           <div className="z-40 flex w-full items-center gap-2">
             <input
@@ -39,6 +39,7 @@ export default function Footer() {
           <Image
             src="/assets/footer_envolope.png"
             alt="envelope"
+            
             width={100}
             height={50}
           />

@@ -14,7 +14,7 @@ const AudioCard = ({ size, audioUrl, title }: AudioCardProps) => {
   return (
     <article
       className={cn(
-        "flex items-center gap-2 rounded-lg border-2 border-primary-300 bg-primary-100  p-2 font-alexandria text-primary-700",
+        "flex-col sm:flex items-center gap-2 rounded-lg border-2 border-primary-300 bg-primary-100  p-2 font-alexandria text-primary-700",
         `${size === "sm" ? "w-full" : ""}`,
       )}
     >
