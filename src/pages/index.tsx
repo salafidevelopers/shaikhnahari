@@ -26,6 +26,7 @@ export default function Home() {
           </div>
         </section>
 
+
         <section className="my-5 grid grid-cols-3 gap-3 rounded-md bg-white 2md:grid-cols-1">
           <div className=" rounded-md border border-primary-200 p-3 shadow-md">
             <div className="mb-4 flex items-center justify-between">
@@ -64,10 +65,10 @@ export default function Home() {
             </div>
           </div>
           <div className=" rounded-md border border-primary-200 p-3 shadow-md">
-            <div className="mb-4 flex items-center justify-between">
+            <div className="mb-4 flex  items-center justify-between">
               <span>جديد الشروحات العلمية:</span>
               <button className="flex items-center gap-3  rounded-lg border border-x-2 bg-primary-700 px-3 py-2  text-white">
-                <span className="px-1 text-sm">See more</span>
+                <span className="px-1 text-xs sm:text-sm">See more</span>
               </button>
             </div>
             <div className="space-y-4">
