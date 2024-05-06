@@ -26,7 +26,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="my-5 sm:grid sm:grid-cols-1 grid grid-cols-3 gap-3 rounded-md bg-white">
+
+        <section className="my-5 grid grid-cols-3 gap-3 rounded-md bg-white 2md:grid-cols-1">
           <div className=" rounded-md border border-primary-200 p-3 shadow-md">
             <div className="mb-4 flex items-center justify-between">
               <span>جديد الشروحات العلمية:</span>

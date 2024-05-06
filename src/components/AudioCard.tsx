@@ -14,16 +14,19 @@ const AudioCard = ({ size, audioUrl, title }: AudioCardProps) => {
   return (
     <article
       className={cn(
-        "flex-col sm:flex items-center gap-2 rounded-lg border-2 border-primary-300 bg-primary-100  p-2 font-alexandria text-primary-700",
+        "flex items-center gap-2 rounded-lg border-2 border-primary-300 bg-primary-100  p-2 font-alexandria text-primary-700 sm:flex-wrap",
         `${size === "sm" ? "w-full" : ""}`,
       )}
     >
-      <span className="text-xl font-bold text-primary-950">
-        <HiSpeakerWave size={18} />
-      </span>
-      <p className={cn("text-[12px] font-medium")}>
-        {title ? title : "شرح عمدة الأحكام (1) "}
-      </p>
+      <div className="flex items-center gap-2">
+        <span className={"text-xl font-bold text-primary-950"}>
+          <HiSpeakerWave size={18} />
+        </span>
+        <p className={cn("text-[12px] font-medium")}>
+          {title ? title : "شرح عمدة الأحكام (1) "}
+        </p>
+      </div>
+
       {/* <div className={cn("flex flex-grow rounded-md bg-white px-2 py-2.5")}>
         {size === "lg" && (
           <div className="flex flex-grow items-center gap-2 text-[13px]">
