@@ -1,6 +1,5 @@
 import { BreadcrumbsContainer, BreadcrumbsItem } from "@/components/BreadCrumb";
 import SecondaryHero from "@/components/SecondaryHero";
-import { Spinner } from "@/components/spinner";
 import { useBreadcrumb } from "@/hooks/useBreadcrumb";
 import { usePathname } from "next/navigation";
 import React from "react";

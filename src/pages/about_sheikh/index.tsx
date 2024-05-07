@@ -30,23 +30,33 @@ const AboutSheikh = () => {
       <ContentLayout>
         <div className="flex-1 rounded-2xl border-2 bg-[#FEFCFA] p-2 shadow-md">
           <div className="mb-4 flex items-center justify-between py-4">
-            <p className="text-xs text-primary-700">تتوقف دروس فضيلة الشيخ عبد الله بن عبد الرحيم البخاري إلى إشعار آخر</p>
-            <div className="flex gap-2 text-white py-2 items-center w-full">
-                <div className="bg-gradient-to-b from-gray-70 to-gray-90 rounded-lg text-[0.7rem] px-5 py-1">زيارات : 15</div>
-                <div className="bg-primary-700 rounded-lg px-5  text-[0.7rem] py-1">أضيف فى : 10 يوليو 2015</div>
+            <p className="text-xs text-primary-700">
+              تتوقف دروس فضيلة الشيخ عبد الله بن عبد الرحيم البخاري إلى إشعار
+              آخر
+            </p>
+            <div className="flex w-full items-center gap-2 py-2 text-white">
+              <p className="rounded-lg bg-gradient-to-b from-gray-70 to-gray-90 px-5 py-1 text-[0.7rem]">
+                زيارات : 15
+              </p>
+              <p className="rounded-lg bg-primary-700 px-5  py-1 text-[0.7rem]">
+                أضيف فى : 10 يوليو 2015
+              </p>
             </div>
           </div>
-          <div className="bg-primary-100 w-full py-3">
-            <div className="text-primary-800 text-sm">تتوقف دروس فضيلة الشيخ عبد الله بن عبد الرحيم البخاري إلى إشعار آخر</div>
+          <div className="w-full bg-primary-100 py-3">
+            <p className="text-sm text-primary-800">
+              تتوقف دروس فضيلة الشيخ عبد الله بن عبد الرحيم البخاري إلى إشعار
+              آخر
+            </p>
           </div>
-          <div className="flex justify-start gap-2 w-full">
-            <div className="bg-primary-300 flex gap-1 p-2 rounded-md text-primary-700">
-                <span className="text-xs">facebook</span>
-                <FaFacebookSquare />
+          <div className="flex w-full justify-start gap-2">
+            <div className="flex gap-1 rounded-md bg-primary-300 p-2 text-primary-700">
+              <span className="text-xs">facebook</span>
+              <FaFacebookSquare />
             </div>
-            <div className="bg-primary-300 flex gap-1 p-2 rounded-md text-primary-700">
-                <span className=" text-xs">twitter</span>
-                <BsTwitterX />
+            <div className="flex gap-1 rounded-md bg-primary-300 p-2 text-primary-700">
+              <span className=" text-xs">twitter</span>
+              <BsTwitterX />
             </div>
           </div>
         </div>
