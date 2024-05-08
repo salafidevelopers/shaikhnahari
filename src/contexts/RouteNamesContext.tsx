@@ -28,6 +28,7 @@ export const RouteNamesProvider: React.FC<{ children: ReactNode }> = ({
     sermons_khutba: "Sermons & Khutbah",
     clips_and_questions: "Clips & Questions",
     lecture_and_meetings: "Lectures",
+    books_khotab: "Books & Khotub",
   };
 
   return (

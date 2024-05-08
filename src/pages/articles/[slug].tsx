@@ -65,6 +65,8 @@ export async function getStaticPaths() {
   const articlesDirectory = path.join(process.cwd(), "src/utils/articles");
   const fileNames = fs.readdirSync(articlesDirectory);
 
+  console.log({ fileNames });
+
   const paths = fileNames.map((fileName) => ({
     params: { slug: fileName.replace(/\.md$/, "") },
   }));
