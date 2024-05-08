@@ -21,6 +21,8 @@ const Article: React.FC<ArticleProps> = ({ content }) => {
   const paths = usePathname();
   const decodedPaths = decodeURIComponent(paths);
 
+  const decodeContent = decodeURIComponent(content);
+
   const { pathItems, getCustomBreadcrumbName } = useBreadcrumb(decodedPaths);
 
   return (
@@ -47,7 +49,7 @@ const Article: React.FC<ArticleProps> = ({ content }) => {
             </button>
           </div>
           <div className="prose prose-h3:text-lg prose-p:text-sm">
-            <ReactMarkdown>{content}</ReactMarkdown>
+            <ReactMarkdown>{decodeContent}</ReactMarkdown>
           </div>
         </article>
       </ContentLayout>

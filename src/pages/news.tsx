@@ -2,11 +2,12 @@ import { BreadcrumbsContainer, BreadcrumbsItem } from "@/components/BreadCrumb";
 import ContentCard from "@/components/ContentCard";
 import ContentLayout from "@/components/ContentLayout";
 import SecondaryHero from "@/components/SecondaryHero";
+import ImportantContents from "@/components/importantContents";
 import { useBreadcrumb } from "@/hooks/useBreadcrumb";
 import { usePathname } from "next/navigation";
 import React from "react";
 
-const Articles = () => {
+const News = () => {
   const paths = usePathname();
   const { pathItems, getCustomBreadcrumbName } = useBreadcrumb(paths);
 
@@ -27,46 +28,38 @@ const Articles = () => {
       </div>
       <ContentLayout>
         <div className="flex-1 rounded-2xl border-2 bg-[#FEFCFA] p-2 shadow-md">
-          <div className="mb-4 flex items-center justify-between gap-3 py-4 md:flex-wrap">
-            <p className="text-3xl text-primary-700 md:text-xl">
-              الآرشيفات: مقالات-الشيخ
-            </p>
-            <p className="rounded-md bg-[#844E10] p-2 text-white md:text-sm">
+          <div className="mb-4 flex items-center justify-between py-4">
+            <p className="text-3xl text-primary-700"> أخبار-الشيخ</p>
+            <p className="rounded-md bg-[#844E10] p-2 text-white">
               عدد المواد الموجودة : 29{" "}
             </p>
           </div>
-          <ul className="space-y-4">
+          <ol className="space-y-4">
             <ContentCard
-              link="/articles"
-              title="العلم فضله وشرفُ أهله"
+              link="/scientific_explanation"
+              title="شرح عمدة الأحكام (مستمر)"
               index={1}
             />
             <ContentCard
-              link="/articles"
-              title="أسباب تمادي المرء في الباطل بعد بيانه له"
+              link="/scientific_explanation"
+              title="شرح التقريب والتيسير للنووي (مستمر)"
               index={2}
             />
-            <ContentCard link="/articles" title="العمل بالعلم" index={3} />
             <ContentCard
-              link="/articles"
-              title="لا يسقط الهجر لعدم انتفاع المهجور به"
+              link="/scientific_explanation"
+              title="مجالس السماع في الشمائل المحمدية للترمذي"
+              index={3}
+            />
+            <ContentCard
+              link="/scientific_explanation"
+              title="شرح فضل علم السلف على علم الخلف لابن رجب – قطر"
               index={4}
             />
-            <ContentCard
-              link="/articles"
-              title="بعض قواعد المنهج واصول المنهج السلفي"
-              index={5}
-            />
-            <ContentCard
-              link="/articles"
-              title="الرَّد على الخطأ الذي ظهر وانتشر وذاع أمرٌ لا بدَّ منه على الكفاية "
-              index={6}
-            />
-          </ul>
+          </ol>
         </div>
       </ContentLayout>
     </>
   );
 };
 
-export default Articles;
+export default News;

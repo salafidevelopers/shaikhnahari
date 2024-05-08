@@ -33,3 +33,19 @@ export const audios = [
     description: "درس متقدم في شرح عمدة الأحكام",
   },
 ];
+
+export const books = [
+  {id: 1, name: "Bulugh-l-maram", img: "/assets/bulugul_maram.jpg"},
+  {id: 2, name:"Fathu-l-bariy", img:"/assets/fathul_bariy.jpg"},
+  {id: 3, name:"Al-arbaun-an-nawawiy", img:"/assets/arbaun.jpg"},
+  {id: 4, name:"Sunan-an-nasai", img:"/assets/Nasai.jpg"},
+  {id: 5, name:"Sahih Muslim", img:"/assets/sahih_muslim.jpg"}
+]
+
+export const writeups = [
+  {id: 1, name: "العلم: فضله وشرفُ أهله", date:"10 يناير 2015"},
+  {id: 2, name:"أسباب تمادي المرء في الباطل بعد بيانه له", date:"10 أبريل 2015"},
+  {id: 3, name:"العمل بالعلم", date:"10 غسطس 2015"},
+  {id: 4, name:"لا يسقط الهجر لعدم انتفاع المهجور به", date:"10 غسطس 2015"},
+  {id: 5, name:"عض قواعد المنهج واصول المنهج السلفي", date:"10 فبراير 2015"}
+]

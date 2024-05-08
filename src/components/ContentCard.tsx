@@ -14,30 +14,31 @@ const ContentCard = ({
   link?: string;
 }) => {
   return (
-    <li className="flex items-center gap-4 rounded-md border-2 border-primary-300 bg-primary-100 p-2">
+    <li className="flex items-center gap-4 rounded-md border-2 border-primary-300 bg-primary-100 p-2 sm:flex-wrap">
       <Link
         href={`${link}/${title}`}
         className={cn(
-          "flex flex-1 cursor-pointer items-center gap-3 text-[13px] font-medium text-primary-800",
+          "flex cursor-pointer items-center gap-3 text-[13px] font-medium text-primary-800",
           !link && "pointer-events-none cursor-not-allowed",
         )}
       >
         <span>.{index}</span>
         <p className="text-xs">{title}</p>
       </Link>
-
-      <p className="text-xs font-medium text-primary-700">
-        أضيف : 21يوليو 2015
-      </p>
-      <button className="flex items-center gap-2 rounded-md bg-[#F5D4AE] p-2">
-        <p className="text-[10px]">Twitter</p>
-        <FaXTwitter size={20} />
-      </button>
-      <button className="flex items-center gap-2 rounded-md bg-[#F5D4AE] p-2">
-        <p className="text-[10px]">Facebook</p>
-        <FaFacebookSquare size={20} />
-      </button>
-      <p className="text-[10px]">زيارات : 53٬40</p>
+      <div className="flex items-center gap-4 ">
+        <p className="text-xs font-medium text-primary-700">
+          أضيف : 21يوليو 2015
+        </p>
+        <button className="flex items-center gap-2 rounded-md bg-[#F5D4AE] p-2">
+          <p className="text-[10px] sm:hidden">Twitter</p>
+          <FaXTwitter className="text-xl sm:text-base" />
+        </button>
+        <button className="flex items-center gap-2 rounded-md bg-[#F5D4AE] p-2">
+          <p className="text-[10px] sm:hidden">Facebook</p>
+          <FaFacebookSquare className="text-xl sm:text-base" />
+        </button>
+        <p className="text-[10px]">زيارات : 53٬40</p>
+      </div>
     </li>
   );
 };

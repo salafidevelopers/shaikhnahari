@@ -3,7 +3,7 @@ import ImportantContentCard from "./ImportantContentCard";
 
 const ImportantContents = () => {
   return (
-    <aside className="self-start rounded-2xl border-2 p-2 shadow-md">
+    <aside className="self-start rounded-2xl border-2 p-2 shadow-md sm:self-stretch">
       <div className="my-2 rounded-md bg-primary-700 bg-[url('/assets/important_contentBg.jpg')] bg-cover bg-center bg-no-repeat p-4 text-center text-white bg-blend-darken">
         محتويات هامه
       </div>
