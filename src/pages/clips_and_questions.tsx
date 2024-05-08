@@ -1,6 +1,5 @@
 import AudioCard from "@/components/AudioCard";
 import { BreadcrumbsContainer, BreadcrumbsItem } from "@/components/BreadCrumb";
-import ContentCard from "@/components/ContentCard";
 import ContentLayout from "@/components/ContentLayout";
 import SecondaryHero from "@/components/SecondaryHero";
 import { useBreadcrumb } from "@/hooks/useBreadcrumb";
