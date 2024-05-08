@@ -1,8 +1,5 @@
-// pages/articles/[slug].tsx
 import { BreadcrumbsContainer, BreadcrumbsItem } from "@/components/BreadCrumb";
 import SecondaryHero from "@/components/SecondaryHero";
-import ImportantContents from "@/components/importantContents";
-import { Spinner } from "@/components/spinner";
 import { usePathname } from "next/navigation";
 import React from "react";
 import fs from "fs";
@@ -23,6 +20,8 @@ const Article: React.FC<ArticleProps> = ({ content }) => {
 
   const paths = usePathname();
   const decodedPaths = decodeURIComponent(paths);
+
+  const decodeContent = decodeURIComponent(content);
 
   const { pathItems, getCustomBreadcrumbName } = useBreadcrumb(decodedPaths);
 
@@ -50,7 +49,7 @@ const Article: React.FC<ArticleProps> = ({ content }) => {
             </button>
           </div>
           <div className="prose prose-h3:text-lg prose-p:text-sm">
-            <ReactMarkdown>{content}</ReactMarkdown>
+            <ReactMarkdown>{decodeContent}</ReactMarkdown>
           </div>
         </article>
       </ContentLayout>

@@ -45,7 +45,7 @@ export default function Navbar() {
 
   const recordingOptions = [
     { label: t("navdropdowns.biography"), link: "/biography" },
-    { label: t("navdropdowns.news"), link: "/#" },
+    { label: t("navdropdowns.news"), link: "/news" },
     { label: t("navdropdowns.books"), link: "/books_khotab" },
   ];
 
@@ -91,7 +91,7 @@ export default function Navbar() {
         >
           <div className="flex items-center gap-2 text-black duration-300 ease-in-out hover:rounded-md hover:bg-gray-100 hover:p-2 hover:transition-all">
             <IoCall />
-            <span className="text-sm text-black sm:text-xs">
+            <span className="text-sm text-black ">
               {t("navbar.contact")}
             </span>
           </div>
@@ -130,7 +130,7 @@ export default function Navbar() {
       )}
       {/* Mobile menu */}
       {showMenu && isMobile && (
-        <div className=" flex flex-col items-center space-y-5 p-3 bg-white absolute top-14 ring-1 ring-primary-400 rounded-md z-50 text-xs">
+        <div className=" flex flex-col items-center space-y-5 p-3 bg-white absolute top-14 px-10 ring-1 ring-primary-400 rounded-md z-50">
           <Link  href="/" className={router.pathname == "/" ? "active" : ""}>
             <div className="flex items-center gap-2 text-black">
               <GoHomeFill />
@@ -139,7 +139,7 @@ export default function Navbar() {
           </Link>
           <Dropdown options={options} />
           <Link href="/articles">
-            <div className="flex gap-2 items-center text-black text-xs">
+            <div className="flex gap-2 items-center text-black">
               <SlBookOpen />
               <span>{t("navbar.articles")}</span>
             </div>
@@ -150,7 +150,7 @@ export default function Navbar() {
             </div>
           </Link>
           <Link href="/contact">
-            <div className="flex items-center gap-2 text-black text-xs">
+            <div className="flex items-center gap-2 text-black">
               <IoCall />
               <span>{t("navbar.contact")}</span>
             </div>

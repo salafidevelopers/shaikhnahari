@@ -1,6 +1,5 @@
 import { BreadcrumbsContainer, BreadcrumbsItem } from "@/components/BreadCrumb";
 import SecondaryHero from "@/components/SecondaryHero";
-import { Spinner } from "@/components/spinner";
 import { useBreadcrumb } from "@/hooks/useBreadcrumb";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -30,7 +29,7 @@ const Contact = () => {
           </button>
         </div>
 
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-4 gap-4 md:grid-cols-1">
           <section className="col-span-3 grid w-full rounded-lg border  border-primary-400 bg-primary-100 p-8">
             <p className="mb-4 text-primary-700">
               للتواصل الرسمي مع الموقع عبر النموذج التالي أو من خلال البريد :
@@ -71,7 +70,7 @@ const Contact = () => {
             </div>
           </section>
           <section className="col-span-1 grid gap-5">
-            <div className=" overflow-hidden rounded-md bg-primary-200">
+            <div className="overflow-hidden rounded-md bg-primary-200">
               <div className="bg-primary-700 bg-[url('/assets/contact-asidebg.jpg')] bg-cover bg-center bg-no-repeat p-4  text-white bg-blend-darken">
                 <p className="text-3xl font-medium ">اتصل بنا</p>
               </div>

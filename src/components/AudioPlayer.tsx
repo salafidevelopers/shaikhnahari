@@ -23,7 +23,8 @@ const PlayerSlider: React.FC<PlayerSliderProps> = ({ size, audioUrl }) => {
   return (
     <div
       className={cn(
-        "flex flex-grow items-center gap-2 rounded-md bg-white px-2",
+        "flex flex-grow items-center  gap-2 rounded-md bg-white px-2",
+        size === "sm" ? "justify-center" : "",
       )}
     >
       {size === "lg" && (
@@ -44,7 +45,7 @@ const PlayerSlider: React.FC<PlayerSliderProps> = ({ size, audioUrl }) => {
       )}
       <button
         onClick={togglePlayPause}
-        className="rounded-md py-2 text-primary-800"
+        className={cn("rounded-md py-2 text-center text-primary-800")}
       >
         {isPlaying ? <IoPause size={20} /> : <IoPlay size={20} />}
       </button>
