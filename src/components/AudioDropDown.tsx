@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import { HiSpeakerWave } from "react-icons/hi2";
-import useTranslation from "next-translate/useTranslation";
-import { useRouter } from "next/router";
-
+import { IoIosArrowDown } from "react-icons/io";
+import { Translate } from "next-translate";
+import { IconType } from "react-icons";
+import { cn } from "@/utils";
 
 interface Option {
   label: React.ReactNode;
@@ -12,9 +13,17 @@ interface Option {
 
 interface DropdownProps {
   options: Option[];
+  rightIcon?: boolean;
+  leftIcon?: IconType;
+  title: Translate;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({ options }) => {
+const Dropdown: React.FC<DropdownProps> = ({
+  title,
+  options,
+  rightIcon,
+  leftIcon,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleMouseEnter = () => {
@@ -25,20 +34,16 @@ const Dropdown: React.FC<DropdownProps> = ({ options }) => {
     setIsOpen(false);
   };
 
-  const router = useRouter();
-  const { t, lang } = useTranslation("index");
-
   return (
     <div
-      className="dropdown"
+      className={cn("dropdown")}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <button className="dropdown-toggle">
-        <span className="flex items-center gap-2 space-x-1 lg:space-x-2 text-black hover:bg-gray-100 hover:p-2 hover:rounded-md hover:transition-all ease-in-out duration-300">
-          <HiSpeakerWave />
-          <span className="md:text-xs sm:text-sm">{t("navbar.audio-recitations")}</span>
-        </span>
+      <button className="dropdown-toggle flex items-center gap-2 space-x-1 text-black duration-300 ease-in-out hover:rounded-md hover:bg-gray-100 hover:p-2 hover:transition-all lg:space-x-2">
+        {rightIcon && <HiSpeakerWave />}
+        <span>{`${title}`}</span>
+        <IoIosArrowDown />
       </button>
       {isOpen && (
         <div className="dropdown-menu">

@@ -10,7 +10,6 @@ import Link from "next/link";
 import logo from "/public/assets/logo.png";
 
 const Hero = () => {
-  const router = useRouter();
   const { t, lang } = useTranslation("index");
 
   return (
@@ -18,14 +17,14 @@ const Hero = () => {
       className={`flex h-full flex-col items-center justify-between bg-[url('/assets/hero_bg.jpg')] bg-cover  bg-center bg-no-repeat p-24 sm:p-10 md:p-16`}
     >
       <div className="flex flex-col items-center justify-between gap-4 lg:pb-8 lg:pt-16">
-        <div className="space-y-3 py-0 text-primary-700 sm:py-14">
+        <div className="space-y-3 py-0 text-primary-700">
           <div className="flex items-center justify-center gap-3 py-3">
             <FaRegCalendar />
             <p className="text-xs">
               اليوم : الأربعاء 28 فبراير 2024 ميلادى - 18 شعبان 1445 هجرى 
             </p>
           </div>
-          <div className="flex items-center justify-center  gap-3">
+          <div className="flex items-center justify-center gap-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

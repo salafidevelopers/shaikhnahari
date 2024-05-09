@@ -57,15 +57,9 @@
     "news": "News",
     "books": "Books"
   },
-
   "biography": {
     "title": "Knowledge: Its Virtue and the Honor of Its People"
   },
-
-  "biography": {
-    "title": "Knowledge: Its Virtue and the Honor of Its People"
-  },
-
   "footer": {
     "about links": {
       "heading": "About us",
@@ -74,7 +68,6 @@
       "Join us": "Join us",
       "appointment": "Book a personal appointment"
     },
-
     "download app": "Download our app",
     "copyright": "All rights reserved to Al-Taseel University",
     "newsletter": {

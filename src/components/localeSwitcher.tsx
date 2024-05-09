@@ -8,32 +8,33 @@ const LocaleSwitcher = () => {
   const { locale, locales, defaultLocale, asPath } = useRouter();
   const [isListOpen, setIsListOpen] = useState(false);
 
-  console.log({ locales, locale });
-
   const onChangeLanguage = () => {
     setIsListOpen(!isListOpen);
   };
 
   return (
     <div>
-      <div className="inline-flex bg-white hover:bg-gray-100 hover:p-2 hover:rounded-md hover:transition-all ease-in-out duration-300 ">
+      <div className="inline-flex bg-white duration-300 ease-in-out hover:rounded-md hover:bg-gray-100 hover:p-2 hover:transition-all ">
         <button
           onClick={onChangeLanguage}
-          className="flex items-center gap-1 rounded-l-md  hover:text-gray-700 sm:text-xs text-sm ">
-          <MdTranslate /> {locale === "ar" ? "العربية" : "English"}
+          className="flex items-center gap-1 rounded-l-md  hover:text-gray-700"
+        >
+          <MdTranslate /> <span>{locale === "ar" ? "العربية" : "English"}</span>
         </button>
         <div className="relative">
           <button
             onClick={onChangeLanguage}
             type="button"
-            className="inline-flex h-full items-center justify-center rounded-md px-1 text-gray-600 hover:bg-gray-50 hover:text-gray-700">
+            className="inline-flex h-full items-center justify-center rounded-md px-1 text-gray-600 hover:bg-gray-50 hover:text-gray-700"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              strokeWidth={2}>
+              strokeWidth={2}
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -43,9 +44,10 @@ const LocaleSwitcher = () => {
           </button>
           <div
             className={cn(
-              "absolute z-10 w-56 mt-3 origin-top-right bg-white border border-gray-100 rounded-md shadow-lg text-start",
-              isListOpen ? "block" : "hidden"
-            )}>
+              "absolute z-10 mt-3 w-56 origin-top-right rounded-md border border-gray-100 bg-white text-start shadow-lg",
+              isListOpen ? "block" : "hidden",
+            )}
+          >
             <div className="p-2" aria-labelledby="dropdown">
               {locales &&
                 locales!.map((loc) => (
@@ -53,7 +55,8 @@ const LocaleSwitcher = () => {
                     //   activeClassName={locale === loc}
                     href={asPath}
                     locale={loc}
-                    key={loc}>
+                    key={loc}
+                  >
                     <span className="block content-start rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700">
                       {loc}
                     </span>

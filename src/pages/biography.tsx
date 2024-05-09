@@ -8,15 +8,10 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
-import { useRouter } from "next/router";
 import { useBreadcrumb } from "@/hooks/useBreadcrumb";
 import ContentLayout from "@/components/ContentLayout";
 
 const Biography = ({ content }: { content: string }) => {
-  const router = useRouter();
-  // Get the slug from the pathname
-  const { slug } = router.query;
-
   const paths = usePathname();
   // Decode the URL-encoded path to display proper names in breadcrumbs
   const decodedPaths = decodeURIComponent(paths);

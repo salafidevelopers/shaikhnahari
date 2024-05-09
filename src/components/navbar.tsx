@@ -12,7 +12,7 @@ import LocaleSwitcher from "./localeSwitcher";
 
 export default function Navbar() {
   const router = useRouter();
-  const { t, lang } = useTranslation("index");
+  const { t } = useTranslation("index");
   const [showMenu, setShowMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -58,7 +58,13 @@ export default function Navbar() {
       className={`flex items-center justify-center bg-white py-3 ${alexandria.className}`}
       id="desktop"
     >
-      <div className={isMobile ? "hidden" : "flex justify-center items-center gap-7 rounded-md p-3 ring-1 ring-primary-400 md:gap-4"}>
+      <div
+        className={
+          isMobile
+            ? "hidden"
+            : "flex items-center justify-center gap-7 rounded-md p-3 ring-1 ring-primary-400 md:gap-4"
+        }
+      >
         <Link className={router.pathname == "/" ? "active" : ""} href="/">
           <div className={`flex items-center gap-2 text-black`}>
             <GoHomeFill />
@@ -66,7 +72,11 @@ export default function Navbar() {
           </div>
         </Link>
         <div>
-          <Dropdown options={options} />
+          <Dropdown
+            options={options}
+            title={t("navbar.audio-recitations")}
+            rightIcon
+          />
         </div>
         <Link
           className={router.pathname == "/articles" ? "active" : ""}
@@ -82,7 +92,10 @@ export default function Navbar() {
           className={router.pathname == "/about_sheikh" ? "active" : ""}
         >
           <div>
-            <RecordingsDropdown options={recordingOptions} />
+            <Dropdown
+              options={recordingOptions}
+              title={t("navbar.about-sheikh")}
+            />
           </div>
         </Link>
         <Link
@@ -91,9 +104,7 @@ export default function Navbar() {
         >
           <div className="flex items-center gap-2 text-black duration-300 ease-in-out hover:rounded-md hover:bg-gray-100 hover:p-2 hover:transition-all">
             <IoCall />
-            <span className="text-sm text-black ">
-              {t("navbar.contact")}
-            </span>
+            <span className="text-sm text-black ">{t("navbar.contact")}</span>
           </div>
         </Link>
         <LocaleSwitcher />
@@ -101,7 +112,7 @@ export default function Navbar() {
       {/* Hamburger menu for mobile */}
       {isMobile && (
         <div className="">
-          <button onClick={toggleMenu} >
+          <button onClick={toggleMenu}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -130,25 +141,28 @@ export default function Navbar() {
       )}
       {/* Mobile menu */}
       {showMenu && isMobile && (
-        <div className=" flex flex-col items-center space-y-5 p-3 bg-white absolute top-14 px-10 ring-1 ring-primary-400 rounded-md z-50">
-          <Link  href="/" className={router.pathname == "/" ? "active" : ""}>
+        <div className="absolute top-14 z-50 flex flex-col items-center space-y-5 rounded-md bg-white p-3 px-10 ring-1 ring-primary-400">
+          <Link href="/" className={router.pathname == "/" ? "active" : ""}>
             <div className="flex items-center gap-2 text-black">
               <GoHomeFill />
               <span>{t("navbar.home")}</span>
             </div>
           </Link>
-          <Dropdown options={options} />
+          <Dropdown
+            options={options}
+            title={t("navbar.audio-recitations")}
+            rightIcon
+          />
           <Link href="/articles">
-            <div className="flex gap-2 items-center text-black">
+            <div className="flex items-center gap-2 text-black">
               <SlBookOpen />
               <span>{t("navbar.articles")}</span>
             </div>
           </Link>
-          <Link href="/about_sheikh/">
-            <div>
-              <RecordingsDropdown options={recordingOptions} />
-            </div>
-          </Link>
+          <Dropdown
+            options={recordingOptions}
+            title={t("navbar.about-sheikh")}
+          />
           <Link href="/contact">
             <div className="flex items-center gap-2 text-black">
               <IoCall />
