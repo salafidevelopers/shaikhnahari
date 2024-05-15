@@ -7,6 +7,7 @@ import { BsTwitterX } from "react-icons/bs";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import logo from "/public/assets/logo.png";
 
 const Hero = () => {
   const router = useRouter();
@@ -14,7 +15,7 @@ const Hero = () => {
 
   return (
     <div
-      className={`flex h-full flex-col items-center justify-between bg-[url('/assets/hero_bg.jpg')]  bg-cover bg-center bg-no-repeat p-24`}
+      className={`flex h-full flex-col items-center justify-between bg-[url('/assets/hero_bg.jpg')] bg-cover  bg-center bg-no-repeat p-24 sm:p-10 md:p-16`}
     >
       <div className="flex flex-col items-center justify-between gap-4 lg:pb-8 lg:pt-16">
         <div className="space-y-3 text-primary-700 sm:py-14 py-0">
@@ -48,12 +49,12 @@ const Hero = () => {
         </div>
         <div className="">
           <Image
-            className="py-5 lg:py-0"
-            src="/assets/logo.png"
+            className="py-5 md:w-[300px] lg:py-0"
+            src={logo}
             alt="Logo"
             width={400}
-            height={100}
             priority
+            sizes="100vw"
           />
         </div>
 
@@ -63,7 +64,7 @@ const Hero = () => {
             className=" text-xs text-primary-700 outline-none sm:h-[40px] sm:rounded-full sm:px-5"
             placeholder={t("navbar.search placeholder")}
           />
-          <button className="cursor-pointer rounded-full bg-primary-700 px-10 py-2 text-xs tracking-wide text-white ring-1 ring-primary-400">
+          <button className="cursor-pointer rounded-full bg-primary-700 px-10 py-2 text-xs tracking-wide text-white ring-1 ring-primary-400 sm:px-5">
             Search
           </button>
         </div>
@@ -86,9 +87,7 @@ const Hero = () => {
 
         <div className="gap- flex justify-center gap-3 text-primary-700">
           <BsTwitterX />
-
           <AiOutlineMail />
-
           <FaFacebookSquare />
         </div>
       </div>
