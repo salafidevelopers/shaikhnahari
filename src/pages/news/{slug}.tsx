@@ -17,7 +17,7 @@ interface ArticleProps {
   content: string;
 }
 
-const Article: React.FC<ArticleProps> = ({ content }) => {
+const News: React.FC<ArticleProps> = ({ content }) => {
   const router = useRouter();
   const { slug } = router.query;
 
@@ -58,7 +58,7 @@ const Article: React.FC<ArticleProps> = ({ content }) => {
   );
 };
 
-export default Article;
+export default News;
 
 // Implement getStaticPaths to define dynamic paths
 export async function getStaticPaths() {
