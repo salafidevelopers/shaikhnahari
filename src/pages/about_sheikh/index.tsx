@@ -10,7 +10,7 @@ import React from "react";
 
 const AboutSheikh = () => {
   const paths = usePathname();
-  const { pathItems, getCustomBreadcrumbName } = useBreadcrumb(paths);
+  const { pathItems, getCustomBreadcrumbName } = useBreadcrumb(paths as string);
 
   return (
     <>

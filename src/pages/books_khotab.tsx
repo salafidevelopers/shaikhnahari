@@ -2,7 +2,7 @@ import { BreadcrumbsContainer, BreadcrumbsItem } from "@/components/BreadCrumb";
 import ContentCard from "@/components/ContentCard";
 import ContentLayout from "@/components/ContentLayout";
 import SecondaryHero from "@/components/SecondaryHero";
-import React, { Fragment, useState } from "react";
+import { Fragment, useState } from "react";
 import { useBreadcrumb } from "@/hooks/useBreadcrumb";
 import { usePathname } from "next/navigation";
 import { cn } from "@/utils";
@@ -11,7 +11,7 @@ export default function Books_khotab() {
   const [activeTab, setActiveTab] = useState("تحقيق");
 
   const paths = usePathname();
-  const { pathItems, getCustomBreadcrumbName } = useBreadcrumb(paths);
+  const { pathItems, getCustomBreadcrumbName } = useBreadcrumb(paths as string);
   return (
     <Fragment>
       <SecondaryHero />
