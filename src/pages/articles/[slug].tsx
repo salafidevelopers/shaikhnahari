@@ -19,7 +19,7 @@ const Article: React.FC<ArticleProps> = ({ content }) => {
   const { slug } = router.query;
 
   const paths = usePathname();
-  const decodedPaths = decodeURIComponent(paths);
+  const decodedPaths = decodeURIComponent(paths as string);
 
   const { pathItems, getCustomBreadcrumbName } = useBreadcrumb(decodedPaths);
 

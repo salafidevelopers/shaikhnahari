@@ -6,8 +6,7 @@ import { GoHomeFill } from "react-icons/go";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import { alexandria } from "@/utils";
-import Dropdown from "./AudioDropDown";
-import RecordingsDropdown from "./RecordingDropdown";
+import Dropdown from "./NavbarDropDown";
 import LocaleSwitcher from "./localeSwitcher";
 
 export default function Navbar() {
