@@ -1,4 +1,13 @@
-import { Children, useState, type ReactNode, useMemo } from "react";
+import {
+  Children,
+  useState,
+  type ReactNode,
+  useMemo,
+  AwaitedReactNode,
+  JSXElementConstructor,
+  Key,
+  ReactElement,
+} from "react";
 import { usePathname } from "next/navigation";
 import { BreadCrumbsContext } from "./breadcrumbs-context";
 import Link from "next/link";
@@ -65,33 +74,52 @@ export const BreadCrumbs = ({
     [trailingPath],
   );
 
-  const pathNames = paths.split("/").filter((path) => path);
-  const pathItems = pathNames.map((path, i) => ({
-    name: path,
-    path: pathNames.slice(0, i + 1).join("/"),
-  }));
+  let pathNames: any;
+  let pathItems: any;
 
-  if (
-    context.trailingPath &&
-    pathItems.length > 0 &&
-    context.trailingPath !== pathItems[pathItems.length - 1].name
-  ) {
-    pathItems[pathItems.length - 1].name = context.trailingPath;
+  if (paths) {
+    pathNames = paths.split("/").filter((path) => path);
+    pathItems = pathNames.map((path: any, i: number) => ({
+      name: path,
+      path: pathNames.slice(0, i + 1).join("/"),
+    }));
+
+    if (
+      context.trailingPath &&
+      pathItems.length > 0 &&
+      context.trailingPath !== pathItems[pathItems.length - 1].name
+    ) {
+      pathItems[pathItems.length - 1].name = context.trailingPath;
+    }
   }
 
   return (
     <>
       <BreadcrumbsContainer>
         {withHome && <BreadcrumbsItem href="/">Home</BreadcrumbsItem>}
-        {pathItems.map((item) => (
-          <BreadcrumbsItem key={item.path} href={`/${item.path}`}>
-            {item.name === "loading" ? (
-              <Spinner className="h-4 w-4" />
-            ) : (
-              item.name
-            )}
-          </BreadcrumbsItem>
-        ))}
+        {pathItems.map(
+          (item: {
+            path: Key | null | undefined;
+            name:
+              | string
+              | number
+              | bigint
+              | boolean
+              | ReactElement<any, string | JSXElementConstructor<any>>
+              | Iterable<ReactNode>
+              | Promise<AwaitedReactNode>
+              | null
+              | undefined;
+          }) => (
+            <BreadcrumbsItem key={item.path} href={`/${item.path}`}>
+              {item.name === "loading" ? (
+                <Spinner className="h-4 w-4" />
+              ) : (
+                item.name
+              )}
+            </BreadcrumbsItem>
+          ),
+        )}
       </BreadcrumbsContainer>
       <BreadCrumbsContext.Provider value={context}>
         {children}

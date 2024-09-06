@@ -39,7 +39,7 @@ const dummyData: AudioRecitationCard[] = [
 const AudioRecitations: React.FC<Props> = ({ cardUi = dummyData }) => {
   const paths = usePathname();
   // Decode the URL-encoded path to display proper names in breadcrumbs
-  const decodedPaths = decodeURIComponent(paths);
+  const decodedPaths = decodeURIComponent(paths as string);
 
   const { pathItems, getCustomBreadcrumbName } = useBreadcrumb(decodedPaths);
 

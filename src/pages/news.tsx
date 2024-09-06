@@ -2,7 +2,6 @@ import { BreadcrumbsContainer, BreadcrumbsItem } from "@/components/BreadCrumb";
 import ContentCard from "@/components/ContentCard";
 import ContentLayout from "@/components/ContentLayout";
 import SecondaryHero from "@/components/SecondaryHero";
-import ImportantContents from "@/components/importantContents";
 import { useBreadcrumb } from "@/hooks/useBreadcrumb";
 import { usePathname } from "next/navigation";
 import React from "react";

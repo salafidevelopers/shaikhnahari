@@ -1,7 +1,5 @@
 import { BreadcrumbsContainer, BreadcrumbsItem } from "@/components/BreadCrumb";
 import SecondaryHero from "@/components/SecondaryHero";
-import ImportantContents from "@/components/importantContents";
-import { Spinner } from "@/components/spinner";
 import { usePathname } from "next/navigation";
 import React from "react";
 import fs from "fs";
@@ -14,7 +12,7 @@ import ContentLayout from "@/components/ContentLayout";
 const Biography = ({ content }: { content: string }) => {
   const paths = usePathname();
   // Decode the URL-encoded path to display proper names in breadcrumbs
-  const decodedPaths = decodeURIComponent(paths);
+  const decodedPaths = decodeURIComponent(paths as string);
 
   const { pathItems, getCustomBreadcrumbName } = useBreadcrumb(decodedPaths);
 

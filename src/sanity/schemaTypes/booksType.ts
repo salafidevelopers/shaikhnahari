@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity";
+import { defineArrayMember, defineField, defineType } from "sanity";
 import { BookIcon } from "@sanity/icons";
 
 export const bookType = defineType({
@@ -24,6 +24,20 @@ export const bookType = defineType({
       name: "url",
       type: "url",
       title: "Book URL",
+    }),
+    defineField({
+      name: "description",
+      type: "text",
+      title: "Description",
+    }),
+    defineField({
+      name: "categories",
+      type: "array",
+      of: [defineArrayMember({ type: "reference", to: { type: "category" } })],
+    }),
+    defineField({
+      name: "publishedAt",
+      type: "datetime",
     }),
   ],
 });
