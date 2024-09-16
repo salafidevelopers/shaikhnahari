@@ -1,3 +1,4 @@
+import { client } from "@/sanity/lib/client";
 import Image from "next/image";
 import { FaRegCalendar } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
@@ -8,6 +9,17 @@ import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import logo from "/public/assets/logo.png";
+import { type SanityDocument } from "next-sanity";
+
+
+const POSTS_QUERY = `*[
+  _type == "post"
+  && defined(slug.current)
+]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}`;
+
+const options = { next: { revalidate: 30 } };
+const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
+
 
 const Hero = () => {
   const { t, lang } = useTranslation("index");
