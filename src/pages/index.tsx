@@ -7,7 +7,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { HiLocationMarker } from "react-icons/hi";
 import { client } from "@/sanity/lib/client";
-import { SanityDocument } from "next-sanity";
 import { useQuery } from "@tanstack/react-query";
 import { getFeaturedContent } from "@/sanity/lib/queries";
 
@@ -41,7 +40,7 @@ export default function Home() {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading post</div>;
 
-  console.log({ data });
+  console.log({ data, error });
 
   return (
     <>
