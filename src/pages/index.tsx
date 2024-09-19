@@ -6,27 +6,42 @@ import { audios, books, writeups } from "@/utils/data";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { HiLocationMarker } from "react-icons/hi";
+import { client } from "@/sanity/lib/client";
+import { SanityDocument } from "next-sanity";
+import { useQuery } from "@tanstack/react-query";
+import { getFeaturedContent } from "@/sanity/lib/queries";
+
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
 
 export default function Home() {
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-  };
+  // Queries
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["fetaured"],
+    queryFn: () => getFeaturedContent(client),
+  });
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error loading post</div>;
+
+  console.log({ data });
 
   return (
     <>

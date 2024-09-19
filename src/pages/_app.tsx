@@ -5,10 +5,14 @@ import useDynamicHeight from "@/hooks/useDynamicHeight";
 import "@/styles/globals.css";
 import { alexandria } from "@/utils";
 import type { AppProps } from "next/app";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { Fragment, useEffect } from "react";
+
+// Create a client
+const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppProps) {
   const { minHeight, heroRef } = useDynamicHeight();
@@ -23,21 +27,26 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <Fragment>
-      <Head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Sheikh Yahyah An-Nahari</title>
-      </Head>
-      <Navbar />
-      <main
-        className={`${alexandria.className} ${alexandria.variable} }`}
-        style={{ minHeight: `${minHeight}px` }}
-      >
-        <RouteNamesProvider>
-          <Component {...pageProps} />
-        </RouteNamesProvider>
-      </main>
-      <Footer />
+      <QueryClientProvider client={queryClient}>
+        <Head>
+          <meta charSet="utf-8" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+          <title>Sheikh Yahyah An-Nahari</title>
+        </Head>
+        <Navbar />
+        <main
+          className={`${alexandria.className} ${alexandria.variable} }`}
+          style={{ minHeight: `${minHeight}px` }}
+        >
+          <RouteNamesProvider>
+            <Component {...pageProps} />
+          </RouteNamesProvider>
+        </main>
+        <Footer />
+      </QueryClientProvider>
     </Fragment>
   );
 }

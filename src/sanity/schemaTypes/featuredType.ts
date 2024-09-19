@@ -13,6 +13,13 @@ export const featuredContentType = defineType({
         "Title of the featured section (e.g. Featured Books, Audios, Blogs)",
     }),
     defineField({
+      name: "slug",
+      type: "slug",
+      options: {
+        source: "title",
+      },
+    }),
+    defineField({
       name: "items",
       title: "Featured Items",
       type: "array",
