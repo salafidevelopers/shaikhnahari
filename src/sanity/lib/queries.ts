@@ -5,6 +5,21 @@ import { type SanityClient } from "next-sanity";
 
 // Query to get all featured content
 export const featuredContentQuery = groq`*[_type == "featuredContent"] | order(_createdAt desc)`;
+export const featuredContentWithItem = groq`*[_type == "featuredContent"]{
+  _createdAt,
+  _id,
+  _rev,
+  _type,
+  _updatedAt,
+  title,
+  items[]->{
+    _id,
+    _type,
+    title,
+    slug,
+    img
+  }
+} | order(_createdAt desc)`;
 
 // Fetch function for all featured content
 export async function getFeaturedContent(
@@ -92,7 +107,7 @@ export interface Book {
   _type: "books";
   _id: string;
   _createdAt: string;
-  name: string;
+  title: string;
   img?: ImageAsset;
   url: string;
   description?: string;

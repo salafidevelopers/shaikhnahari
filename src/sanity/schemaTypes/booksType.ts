@@ -8,9 +8,16 @@ export const bookType = defineType({
   icon: BookIcon,
   fields: [
     defineField({
-      name: "name",
+      name: "title",
       type: "string",
       title: "Book Name",
+    }),
+    defineField({
+      name: "slug",
+      type: "slug",
+      options: {
+        source: "title",
+      },
     }),
     defineField({
       name: "img",
